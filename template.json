@@ -1,0 +1,190 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+       
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "entropie": {
+        "value": 0
+      },
+      "bonus-action": {
+        "value": 0
+      },
+      "stocktotal": {
+      "value": 0,
+      "max": 6
+      },
+      "stockages": {
+        "sursoi": {
+        "value": 0,
+        "max": 6,
+        "checkid": "checksursoi",
+        "check": false
+        },
+        "sacados": {
+        "value": 0,
+        "max": 15,
+        "checkid": "checksacados" 
+        },
+        "sacappoint": {
+        "value": 0,
+        "max": 10,
+        "checkid": "checksacappoint" 
+        },
+        "chariot": {
+        "value": 0,
+        "max": 30,
+        "checkid": "checkchariot" 
+        }
+      },
+       "maladie": {
+        "value": 0
+      },
+      "repos": {
+        "value": 0
+      },
+      "biography": "",
+      "caracs": {
+        "phy": {
+          "value": "D10",
+          "faiblesse": 0,
+          "radioid": "radiophy"
+        },
+        "min": {
+          "value": "D10",
+          "faiblesse": 0,
+          "radioid": "radiomin"
+        },
+        "per": {
+          "value": "D10",
+          "faiblesse": 0,
+          "radioid": "radioper"
+        },
+        "pre": {
+          "value": "D10",
+          "faiblesse": 0,
+          "radioid": "radiopre"
+        }
+      },
+      "domaines": {
+        "danger": {
+          "value": "D10",
+          "radioid": "radiodanger"
+        },
+        "route": {
+          "value": "D10",
+          "radioid": "radioroute"
+        },
+        "exploration": {
+          "value": "D10",
+          "radioid": "radioexploration"
+        },
+        "foyer": {
+          "value": "D10",
+          "radioid": "radiofoyer"
+        }
+      },
+      "outils": {
+        "outil1": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "atout": 0,
+          "checkid": "checkoutil1"
+        },
+        "outil2": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "atout": 0,
+          "checkid": "checkoutil2"
+        },
+        "outil3": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "atout": 0,
+          "checkid": "checkoutil3"
+        },
+        "outil4": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "atout": 0,
+          "checkid": "checkoutil4"
+        },
+        "outil5": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "atout": 0,
+          "checkid": "checkoutil5"
+        },
+        "outil6": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "atout": 0,
+          "checkid": "checkoutil6"
+        }
+      },
+      "ressources": {
+        "vivres": {
+          "value": 0
+        },
+        "bricabrac": {
+          "value": 0
+        },
+        "pharmacie": {
+          "value": 0
+        },
+        "munitions": {
+          "value": 0
+        }
+      },
+      "vetements": {
+        "chauds": {
+          "checkid": "checkchauds"
+        },
+        "etanches": {
+          "checkid": "checketanches"
+        },
+        "chaussures": {
+          "checkid": "checkchaussures"
+        },
+        "tente": {
+          "checkid": "checktente"
+        }
+      }
+    },
+    "npc": {
+      "rang": 8
+    }
+  },
+  "Item": {
+    "types": ["item", "feature", "spell"],
+    "templates": {
+      "base": {
+      
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantite": 1,
+      "encombrement": 1,
+      "atout": 1,
+      "description": ""
+    },
+    "feature": {
+      "templates": ["base"]
+    },
+    "spell": {
+      "templates": ["base"],
+      "spellLevel": 1
+    }
+  }
+}

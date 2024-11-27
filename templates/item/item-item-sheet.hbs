@@ -1,0 +1,56 @@
+<form class='{{cssClass}}' autocomplete='off'>
+  <header class='sheet-header'>
+    <img
+      class='profile-img'
+      src='{{item.img}}'
+      data-edit='img'
+      title='{{item.name}}'
+    />
+    <div class='header-fields'>
+      <h1 class='charname'><input
+          name='name'
+          type='text'
+          value='{{item.name}}'
+          placeholder='Name'
+        /></h1>
+      <div class='grid grid-3col'>
+        <div class="resource flex-group-center">
+          <label class='resource-label'>Quantité</label>
+          <input
+            type='text'
+            name='system.quantite'
+            value='{{system.quantite}}'
+            data-dtype='Number'
+          />
+        </div>
+        <div class="resource flex-group-center">
+          <label class='resource-label'>Encombrement</label>
+          <input
+            type='text'
+            name='system.encombrement'
+            value='{{system.encombrement}}'
+            data-dtype='Number'
+          />
+        </div>
+        <div class="resource flex-group-center">
+          <label class='resource-label'>Atout</label>
+          <input
+            type='text'
+            name='system.atout'
+            value='{{system.atout}}'
+            data-dtype='Number'
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+ <div class="resource flex-group-center">
+    <label class="resource-label">Description</label>
+    <div class="resource-content flexrow flex-center flex-between">
+      <input type="textfield" name="system.description" value="{{system.description}}" data-dtype="String"/>
+    </div>
+  </div>
+  
+   
+  
+</form>

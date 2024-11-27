@@ -1,0 +1,73 @@
+{
+  "UJDP": {
+    "Carac": {
+      "Phy": { "long": "Physique", "abbr": "phy" },
+      "Per": { "long": "Perspicacite", "abbr": "per" },
+      "Min": { "long": "Minutie", "abbr": "min" },
+      "Pre": { "long": "Presence", "abbr": "pre" }
+    },
+    "Domaine": {
+      "Danger": { "long": "Danger", "abbr": "dan" },
+      "Route": { "long": "Route", "abbr": "rou" },
+      "Exploration": { "long": "Exploration", "abbr": "exp" },
+      "Foyer": { "long": "Foyer", "abbr": "foy" }
+    },
+    "Stockage": {
+      "Sursoi": { "long": "Sur soi", "abbr": "sursoi" },
+      "Sacados": { "long": "Sac à dos", "abbr": "Sacados" },
+      "Sacappoint": { "long": "Sac d'appoint", "abbr": "Sacappoint" },
+      "Chariot": { "long": "Chariot", "abbr": "Chariot" }
+    },
+    "Outil": {
+      "Outil1": { "long": "Outil1", "abbr": "Outil1" },
+      "Outil2": { "long": "Outil2", "abbr": "Outil2" },
+      "Outil3": { "long": "Outil3", "abbr": "Outil3" },
+      "Outil4": { "long": "Outil4", "abbr": "Outil4" },
+      "Outil5": { "long": "Outil5", "abbr": "Outil5" },
+      "Outil6": { "long": "Outil6", "abbr": "Outil6" }
+    },
+
+    "Ressource": {
+      "Vivres": { "long": "Vivres", "abbr": "Vivres" },
+      "Bricabrac": { "long": "Bric-à-brac", "abbr": "Bric-à-brac" },
+      "Pharmacie": { "long": "Pharmacie", "abbr": "Pharmacie" },
+      "Munitions": { "long": "Munitions", "abbr": "Munitions" }
+    },
+
+    "Vetement": {
+      "Chauds": { "long": "Chauds", "abbr": "Chauds" },
+      "Etanches": { "long": "Étanches", "abbr": "Étanches" },
+      "Chaussures": { "long": "Chaussures", "abbr": "Chaussures" },
+      "Tente": { "long": "Tente", "abbr": "Tente" }
+    },
+    "SheetLabels": {
+      "Actor": "Ujdp Actor Sheet",
+      "Item": "Ujdp Item Sheet"
+    },
+    "Item": {
+      "Spell": {
+        "SpellLVL": "stockage {stockage} Spells",
+        "AddLVL": "Add LVL {stockage}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "item": "Item",
+      "feature": "Feature",
+      "spell": "Spell"
+    }
+  }
+}

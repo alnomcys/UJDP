@@ -28,17 +28,20 @@
         "sacados": {
         "value": 0,
         "max": 15,
-        "checkid": "checksacados" 
+        "checkid": "checksacados",
+        "check": false
         },
         "sacappoint": {
         "value": 0,
         "max": 10,
-        "checkid": "checksacappoint" 
+        "checkid": "checksacappoint",
+        "check": false
         },
         "chariot": {
         "value": 0,
         "max": 30,
-        "checkid": "checkchariot" 
+        "checkid": "checkchariot",
+        "check": false 
         }
       },
        "maladie": {

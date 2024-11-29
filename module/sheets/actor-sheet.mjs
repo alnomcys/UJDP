@@ -340,17 +340,19 @@ export class UjdpActorSheet extends ActorSheet {
     ev.preventDefault();
     const element = ev.delegateTarget;
     
-    //console.log (ev);
+    console.log (ev);
     
     //console.log (this.actor.system.stocktotal.max);
-       
+      
       if(ev.delegateTarget[58].checked){       
-        this.object.system.stockages.sursoi.max = 6;
-        console.log (this.object.system.stockages.sursoi.max);
+        ev.delegateTarget[60].dataset.valeur = 6;
+        //this.object.system.stockages.sursoi.max = 6;
+        console.log (ev.delegateTarget[60].attributes[2].value);
       } else{        
-        this.object.system.stockages.sursoi.max = 0;
-        console.log (this.object.system.stockages.sursoi.max);
-      };
+        ev.delegateTarget[60].dataset.valeur = 0;
+        //this.object.system.stockages.sursoi.max = 0;
+        console.log (ev.delegateTarget[60].attributes[2].value);
+      };/* 
       if(ev.delegateTarget[61].checked){
         this.actor.system.stockages.sacados.max = 15;
       } else{
@@ -365,6 +367,6 @@ export class UjdpActorSheet extends ActorSheet {
         this.actor.system.stockages.chariot.max = 30;
       } else{
         this.actor.system.stockages.chariot.max = 0;
-      };
+      };*/
   }
 }

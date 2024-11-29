@@ -157,7 +157,7 @@
               <label for="system.stockages.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.stockages key)}}">{{localize (lookup @root.config.stockages key)}}</label>
               <input type="text" name="system.stockages.{{key}}.value" value="{{stockage.value}}" data-dtype="Number"/>
               <span> / </span>
-              <input type="text" name="system.stockages.{{key}}.max" value="{{stockage.max}}" data-dtype="Number"/>
+              <input type="text" name="system.stockages.{{key}}.max" value="{{stockage.max}}" data-valeur="{{stockage.max}}" data-dtype="Number"/>
             </div>
             {{/each}} 
           </div>

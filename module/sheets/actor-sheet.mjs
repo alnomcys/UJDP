@@ -339,34 +339,38 @@ export class UjdpActorSheet extends ActorSheet {
   _onCheck(ev) {
     ev.preventDefault();
     const element = ev.delegateTarget;
-    
+    let max = 6;
     console.log (ev);
     
-    //console.log (this.actor.system.stocktotal.max);
+    //Mise à jour des valeurs max de stockage selon les stockages cochées
       
       if(ev.delegateTarget[58].checked){       
-        ev.delegateTarget[60].dataset.valeur = 6;
-        //this.object.system.stockages.sursoi.max = 6;
-        console.log (ev.delegateTarget[60].attributes[2].value);
+        max = 6;
+        this.actor.update({'system.stockages.sursoi.max' : max});
       } else{        
-        ev.delegateTarget[60].dataset.valeur = 0;
-        //this.object.system.stockages.sursoi.max = 0;
-        console.log (ev.delegateTarget[60].attributes[2].value);
-      };/* 
+        max = 0;
+        this.actor.update({'system.stockages.sursoi.max' : max});
+      };
       if(ev.delegateTarget[61].checked){
-        this.actor.system.stockages.sacados.max = 15;
+        max = 15;
+        this.actor.update({'system.stockages.sacados.max' : max});
       } else{
-        this.actor.system.stockages.sacados.max = 0;
+        max = 0;
+        this.actor.update({'system.stockages.sacados.max' : max});
       };
       if(ev.delegateTarget[64].checked){
-        this.actor.system.stockages.sacappoint.max = 10;
+        max = 10;
+        this.actor.update({'system.stockages.sacappoint.max' : max});
       } else{
-        this.actor.system.stockages.sacappoint.max = 0;
+        max = 0;
+        this.actor.update({'system.stockages.sacappoint.max' : max});
       };
       if(ev.delegateTarget[67].checked){
-        this.actor.system.stockages.chariot.max = 30;
+        max = 30;
+        this.actor.update({'system.stockages.chariot.max' : max});
       } else{
-        this.actor.system.stockages.chariot.max = 0;
-      };*/
+        max = 0;
+        this.actor.update({'system.stockages.chariot.max' : max});
+      };
   }
 }

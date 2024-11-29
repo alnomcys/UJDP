@@ -275,15 +275,19 @@ export class UjdpActorSheet extends ActorSheet {
     //attribution de la carac sélectionnée
     if(element[8].checked){
       dcarac = phy;
+      faiblesse = faibphy;
     };
     if(element[11].checked){
       dcarac = min;
+      faiblesse = faibmin;
     };
     if(element[14].checked){
       dcarac = per;
+      faiblesse = faibper;
     };
     if(element[17].checked){
       dcarac = pre;
+      faiblesse = faibpre;
     };
 
     //attribution du domaine sélectionné

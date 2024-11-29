@@ -21,25 +21,25 @@
       "stockages": {
         "sursoi": {
         "value": 0,
-        "max": 6,
+        "max": 0,
         "checkid": "checksursoi",
         "check": false
         },
         "sacados": {
         "value": 0,
-        "max": 15,
+        "max": 0,
         "checkid": "checksacados",
         "check": false
         },
         "sacappoint": {
         "value": 0,
-        "max": 10,
+        "max": 0,
         "checkid": "checksacappoint",
         "check": false
         },
         "chariot": {
         "value": 0,
-        "max": 30,
+        "max": 0,
         "checkid": "checkchariot",
         "check": false 
         }

@@ -44,7 +44,7 @@
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.stockage.value" class="resource-label">Stockage</label>
+          <label for="system.stockagetotal.value" class="resource-label">Stockage</label>
           <div class="resource-content flexrow flex-center flex-between">
            <input type="text" name="system.stocktotal.value" value="{{system.stocktotal.value}}" data-dtype="Number"/>
            <span> / </span>
@@ -153,9 +153,9 @@
          <div>
             {{#each system.stockages as |stockage key|}}
             <div class="carac flexrow flex-group-center">
-              <input type="checkbox" class="check" name="system.stockages.{{key}}.check" {{checked stockage.check}}/>
+              <input type="checkbox" class="checkstockage" name="system.stockages.{{key}}.check" {{checked stockage.check}}/>
               <label for="system.stockages.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.stockages key)}}">{{localize (lookup @root.config.stockages key)}}</label>
-              <input type="text" name="system.stockages.{{key}}.value" value="{{stockage.value}}"  data-dtype="Number"/>
+              <input type="text" name="system.stockages.{{key}}.value" value="{{stockage.value}}" data-dtype="Number"/>
               <span> / </span>
               <input type="text" name="system.stockages.{{key}}.max" value="{{stockage.max}}" data-dtype="Number"/>
             </div>
@@ -182,8 +182,8 @@
          <div>
             {{#each system.vetements as |vetement key|}}
             <div class="carac flexrow flex-group-center">
-              <input type="checkbox" name="{{vetement.checkid}}" id="{{vetement.checkid}}"/>
-              <label for="system.vetements.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.vetements key)}}">{{localize (lookup @root.config.vetements key)}}</label>
+              <input type="checkbox" class="check" name="system.vetements.{{key}}.check" {{checked vetement.check}}/>
+              <label for="system.vetements.{{key}}.check" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.vetements key)}}">{{localize (lookup @root.config.vetements key)}}</label>
             </div>
             {{/each}}
           </div>

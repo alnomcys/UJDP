@@ -3,6 +3,7 @@ import {
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
 
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -23,6 +24,8 @@ export class UjdpActorSheet extends ActorSheet {
       ],
     });
   }
+
+  
 
   /** @override */
   get template() {
@@ -94,7 +97,8 @@ export class UjdpActorSheet extends ActorSheet {
   _prepareCharacterData(context) {
     // This is where you can enrich character-specific editor fields
     // or setup anything else that's specific to this type
-    }
+   
+  }
 
   /**
    * Organize and classify Items for Actor sheets.
@@ -141,9 +145,13 @@ export class UjdpActorSheet extends ActorSheet {
     context.gear = gear;
     context.features = features;
     context.spells = spells;
+
+
   }
 
   /* -------------------------------------------- */
+  
+  
   
 
   /** @override */
@@ -185,8 +193,9 @@ export class UjdpActorSheet extends ActorSheet {
     // bouton d'action.
     html.on('click', '.action', this._onRoll.bind(this));
 
-     /* checkbox.
-     html.on('click', '.check', this._onCheck.bind(this));*/
+     //checkbox.
+     
+     html.on('change','.checkstockage',this._onCheck.bind(this));
 
 
     // Drag events for macros.
@@ -291,22 +300,6 @@ export class UjdpActorSheet extends ActorSheet {
       ddomaine = foyer;   
     };
 
-    //attribution du domaine sélectionné
-    if(element[20].checked){
-      ddomaine = danger;
-    };
-    if(element[22].checked){
-      ddomaine = route;
-    };
-    if(element[24].checked){
-      ddomaine = exploration;
-    };
-    if(element[26].checked){
-      ddomaine = foyer;   
-    };
-
-  
-
     //attribution de l'atout des Outils sélectionné
     if(element[28].checked){
       atout += atoutoutil[0];
@@ -328,8 +321,8 @@ export class UjdpActorSheet extends ActorSheet {
     };
 
     var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonus + " + " + atout + " - " + faiblesse; 
-    var formule = formule.replace("D", "d");
-    var formule = formule.replace("D", "d");
+    formule = formule.replace("D", "d");
+    formule = formule.replace("D", "d");
 
     let roll = new Roll(formule);
     roll.toMessage({
@@ -343,22 +336,35 @@ export class UjdpActorSheet extends ActorSheet {
     console.log (event);
    
   }
- /* _onCheck(event) {
-    event.preventDefault();
-    const element = event.delegateTarget;
-
-    //sauvegarde des stockages cochés
-    if(element[58].checked){
-     element[58].dataset.check = true;
-    };
-    if(element[22].checked){
-        ddomaine = route;
+  _onCheck(ev) {
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    
+    //console.log (ev);
+    
+    //console.log (this.actor.system.stocktotal.max);
+       
+      if(ev.delegateTarget[58].checked){       
+        this.object.system.stockages.sursoi.max = 6;
+        console.log (this.object.system.stockages.sursoi.max);
+      } else{        
+        this.object.system.stockages.sursoi.max = 0;
+        console.log (this.object.system.stockages.sursoi.max);
       };
-    if(element[24].checked){
-      ddomaine = exploration;
-    };
-    if(element[26].checked){
-      ddomaine = foyer;   
-    };
-  }*/
+      if(ev.delegateTarget[61].checked){
+        this.actor.system.stockages.sacados.max = 15;
+      } else{
+        this.actor.system.stockages.sacados.max = 0;
+      };
+      if(ev.delegateTarget[64].checked){
+        this.actor.system.stockages.sacappoint.max = 10;
+      } else{
+        this.actor.system.stockages.sacappoint.max = 0;
+      };
+      if(ev.delegateTarget[67].checked){
+        this.actor.system.stockages.chariot.max = 30;
+      } else{
+        this.actor.system.stockages.chariot.max = 0;
+      };
+  }
 }

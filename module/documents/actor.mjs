@@ -46,12 +46,14 @@ export class UjdpActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-
+    
     // Loop through carac scores, and add their modifiers to our sheet output.
     for (let [key, carac] of Object.entries(systemData.caracs)) {
       // Calculate the modifier using d20 rules.
       carac.mod = Math.floor((carac.value - 10) / 2);
     }
+    // test pour calcul stockagemax
+    systemData.stocktotal.max = systemData.stockages.sursoi.max + systemData.stockages.sacados.max + systemData.stockages.sacappoint.max + systemData.stockages.chariot.max; //stockagetab[0] + stockagetab[1] + stockagetab[2]+ stockagetab[3];
   }
 
   /**
@@ -94,9 +96,9 @@ export class UjdpActor extends Actor {
     }
 
     // Add stockage for easier access, or fall back to 0.
-    if (data.stockage) {
+   /* if (data.stockage) {
       data.lvl = data.stockage.value ?? 0;
-    }
+    }*/
   }
 
   /**

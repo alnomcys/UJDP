@@ -16,7 +16,7 @@
       },
       "stocktotal": {
       "value": 0,
-      "max": 6
+      "max": 0
       },
       "stockages": {
         "sursoi": {
@@ -151,16 +151,20 @@
       },
       "vetements": {
         "chauds": {
-          "checkid": "checkchauds"
+          "checkid": "checkchauds",
+          "check": false 
         },
         "etanches": {
-          "checkid": "checketanches"
+          "checkid": "checketanches",
+          "check": false 
         },
         "chaussures": {
-          "checkid": "checkchaussures"
+          "checkid": "checkchaussures",
+          "check": false 
         },
         "tente": {
-          "checkid": "checktente"
+          "checkid": "checktente",
+          "check": false 
         }
       }
     },

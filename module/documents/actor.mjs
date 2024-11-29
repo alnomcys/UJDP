@@ -52,6 +52,15 @@ export class UjdpActor extends Actor {
       // Calculate the modifier using d20 rules.
       carac.mod = Math.floor((carac.value - 10) / 2);
     }
+
+    if(systemData.repos.value > 10){systemData.repos.value = 10;}
+
+    // Repos qui dimune l'entropie
+    while(systemData.repos.value >= 5 && systemData.entropie.value >= 1){
+      systemData.repos.value -= 5;
+      systemData.entropie.value -= 1;
+    }
+
     // test pour calcul stockagemax
     systemData.stocktotal.max = systemData.stockages.sursoi.max + systemData.stockages.sacados.max + systemData.stockages.sacappoint.max + systemData.stockages.chariot.max; //stockagetab[0] + stockagetab[1] + stockagetab[2]+ stockagetab[3];
   }

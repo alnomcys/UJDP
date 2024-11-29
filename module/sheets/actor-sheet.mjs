@@ -271,6 +271,9 @@ export class UjdpActorSheet extends ActorSheet {
     var ddomaine = "D10";
     var faiblesse = 0;
     var atout = 0;
+    var maladie = this.actor.system.maladie.value;
+    var newEntropie = parseInt(bonus) + parseInt(this.actor.system.entropie.value);
+    this.actor.update({'system.entropie.value' : newEntropie});
     
     //attribution de la carac sélectionnée
     if(element[8].checked){
@@ -324,7 +327,7 @@ export class UjdpActorSheet extends ActorSheet {
       atout += atoutoutil[5];
     };
 
-    var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonus + " + " + atout + " - " + faiblesse; 
+    var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonus + " + " + atout + " - " + faiblesse + " - " + maladie; 
     formule = formule.replace("D", "d");
     formule = formule.replace("D", "d");
 

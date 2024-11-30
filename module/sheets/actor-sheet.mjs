@@ -193,9 +193,11 @@ export class UjdpActorSheet extends ActorSheet {
     // bouton d'action.
     html.on('click', '.action', this._onRoll.bind(this));
 
-     //checkbox.
-     
-     html.on('change','.checkstockage',this._onCheck.bind(this));
+     //checkbox de stockage.
+    html.on('change','.checkstockage',this._onCheck.bind(this));
+
+    // checkbox de tente.
+    html.on('change', '.checktente', this._onCheckTente.bind(this));
 
 
     // Drag events for macros.
@@ -351,33 +353,46 @@ export class UjdpActorSheet extends ActorSheet {
     
     //Mise à jour des valeurs max de stockage selon les stockages cochées
       
-      if(ev.delegateTarget[58].checked){       
+      if(element[58].checked){       
         max = 6;
         this.actor.update({'system.stockages.sursoi.max' : max});
       } else{        
         max = 0;
         this.actor.update({'system.stockages.sursoi.max' : max});
       };
-      if(ev.delegateTarget[61].checked){
-        max = 15;
+      if(element[61].checked){
+        max = 12;
         this.actor.update({'system.stockages.sacados.max' : max});
       } else{
         max = 0;
         this.actor.update({'system.stockages.sacados.max' : max});
       };
-      if(ev.delegateTarget[64].checked){
-        max = 10;
+      if(element[64].checked){
+        max = 8;
         this.actor.update({'system.stockages.sacappoint.max' : max});
       } else{
         max = 0;
         this.actor.update({'system.stockages.sacappoint.max' : max});
       };
-      if(ev.delegateTarget[67].checked){
-        max = 30;
+      if(element[67].checked){
+        max = 20;
         this.actor.update({'system.stockages.chariot.max' : max});
       } else{
         max = 0;
         this.actor.update({'system.stockages.chariot.max' : max});
       };
+  }
+
+  _onCheckTente(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let enc = 3;    
+    if(element[77].checked){       
+      enc = 3;
+      this.actor.update({'system.vetements.tente.encombrement' : enc});
+    } else{        
+      enc = 0;
+      this.actor.update({'system.vetements.tente.encombrement' : enc});
+    };
   }
 }

@@ -91,50 +91,50 @@
           "radioid": "radiofoyer"
         }
       },
-      "outils": {
-        "outil1": {
+      "outils": [
+        {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "atout": 0,
           "checkid": "checkoutil1"
         },
-        "outil2": {
+        {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "atout": 0,
           "checkid": "checkoutil2"
         },
-        "outil3": {
+        {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "atout": 0,
           "checkid": "checkoutil3"
         },
-        "outil4": {
+        {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "atout": 0,
           "checkid": "checkoutil4"
         },
-        "outil5": {
+        {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "atout": 0,
           "checkid": "checkoutil5"
         },
-        "outil6": {
+        {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "atout": 0,
           "checkid": "checkoutil6"
         }
-      },
+      ],
       "ressources": {
         "vivres": {
           "value": 0
@@ -164,6 +164,7 @@
         },
         "tente": {
           "checkid": "checktente",
+          "encombrement": 0,
           "check": false 
         }
       }

@@ -182,7 +182,7 @@
          <div>
             {{#each system.vetements as |vetement key|}}
             <div class="carac flexrow flex-group-center">
-              <input type="checkbox" class="check" name="system.vetements.{{key}}.check" {{checked vetement.check}}/>
+              <input type="checkbox" class="checktente" name="system.vetements.{{key}}.check" {{checked vetement.check}}/>
               <label for="system.vetements.{{key}}.check" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.vetements key)}}">{{localize (lookup @root.config.vetements key)}}</label>
             </div>
             {{/each}}

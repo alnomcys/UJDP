@@ -63,11 +63,6 @@
     "Actor": {
       "character": "Character",
       "npc": "NPC"
-    },
-    "Item": {
-      "item": "Item",
-      "feature": "Feature",
-      "spell": "Spell"
     }
   }
 }

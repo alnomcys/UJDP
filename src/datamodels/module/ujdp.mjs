@@ -48,8 +48,7 @@ Hooks.once('init', function () {
   CONFIG.Item.documentClass = UjdpItem;
   CONFIG.Item.dataModels = {
     item: models.UjdpItem,
-    feature: models.UjdpFeature,
-    spell: models.UjdpSpell
+    feature: models.UjdpFeature
   }
 
   // Active Effects are never copied to the Actor,

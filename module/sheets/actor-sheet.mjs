@@ -95,18 +95,6 @@ export class UjdpActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: [],
-    };
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -119,18 +107,11 @@ export class UjdpActorSheet extends ActorSheet {
       else if (i.type === 'feature') {
         features.push(i);
       }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.system.spellLevel != undefined) {
-          spells[i.system.spellLevel].push(i);
-        }
-      }
     }
 
     // Assign and return
     context.gear = gear;
     context.features = features;
-    context.spells = spells;
 
 
   }

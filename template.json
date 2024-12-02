@@ -174,7 +174,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["item", "feature"],
     "templates": {
       "base": {
       
@@ -189,10 +189,6 @@
     },
     "feature": {
       "templates": ["base"]
-    },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
     }
   }
 }

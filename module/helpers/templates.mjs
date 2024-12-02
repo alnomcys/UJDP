@@ -8,9 +8,6 @@ export const preloadHandlebarsTemplates = async function () {
     // Actor partials.
     'systems/ujdp/templates/actor/parts/actor-features.hbs',
     'systems/ujdp/templates/actor/parts/actor-items.hbs',
-    'systems/ujdp/templates/actor/parts/actor-spells.hbs',
-    'systems/ujdp/templates/actor/parts/actor-effects.hbs',
     // Item partials
-    'systems/ujdp/templates/item/parts/item-effects.hbs',
   ]);
 };

@@ -357,15 +357,14 @@
   flex: 0 0 200px;
   padding: 0 8px;
 }
-.ujdp .effects .item .effect-source,
-.ujdp .effects .item .effect-duration,
-.ujdp .effects .item .effect-controls {
+.ujdp .item
+.item .ujdp .item {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
-.ujdp .effects .item .effect-controls {
+.ujdp .item {
   border: none;
 }
 .cadre {

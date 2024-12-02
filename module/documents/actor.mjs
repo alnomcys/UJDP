@@ -72,8 +72,6 @@ export class UjdpActor extends Actor {
     var encombrementtente = parseInt(systemData.vetements.tente.encombrement);
     systemData.stocktotal.value = encombrementressources + encombrementoutils + encombrementtente; // à finir pour le remplissage des stockages.
 
-
-
     // Calcul stockagemax
     systemData.stocktotal.max = systemData.stockages.sursoi.max + systemData.stockages.sacados.max + systemData.stockages.sacappoint.max + systemData.stockages.chariot.max; //stockagetab[0] + stockagetab[1] + stockagetab[2]+ stockagetab[3];
   }

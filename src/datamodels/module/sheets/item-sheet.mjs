@@ -1,8 +1,3 @@
-import {
-  onManageActiveEffect,
-  prepareActiveEffectCategories,
-} from '../helpers/effects.mjs';
-
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -68,9 +63,6 @@ export class UjdpItemSheet extends ItemSheet {
     // Adding a pointer to CONFIG.UJDP
     context.config = CONFIG.UJDP;
 
-    // Prepare active effects for easier access
-    context.effects = prepareActiveEffectCategories(this.item.effects);
-
     return context;
   }
 
@@ -82,12 +74,5 @@ export class UjdpItemSheet extends ItemSheet {
 
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
-
-    // Roll handlers, click handlers, etc. would go here.
-
-    // Active Effect management
-    html.on('click', '.effect-control', (ev) =>
-      onManageActiveEffect(ev, this.item)
-    );
   }
 }

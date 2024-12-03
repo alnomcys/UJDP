@@ -1,7 +1,7 @@
 {
   "name": "ujdp",
   "version": "2.0.0",
-  "description": "CSS compiler for the Ujdp system",
+  "notes": "CSS compiler for the Ujdp system",
   "scripts": {
     "build": "sass src/scss/ujdp.scss css/ujdp.css --style=expanded --no-source-map",
     "watch": "sass src/scss/ujdp.scss css/ujdp.css --style=expanded --source-map --watch",

@@ -13,7 +13,7 @@ export class UjdpItemSheet extends ItemSheet {
         {
           navSelector: '.sheet-tabs',
           contentSelector: '.sheet-body',
-          initial: 'description',
+          initial: 'notes',
         },
       ],
     });
@@ -40,10 +40,10 @@ export class UjdpItemSheet extends ItemSheet {
     // Use a safe clone of the item data for further operations.
     const itemData = this.document.toPlainObject();
 
-    // Enrich description info for display
+    // Enrich notes info for display
     // Enrichment turns text like `[[/r 1d20]]` into buttons
-    context.enrichedDescription = await TextEditor.enrichHTML(
-      this.item.system.description,
+    context.enrichedNotes = await TextEditor.enrichHTML(
+      this.item.system.notes,
       {
         // Whether to show secret blocks in the finished html
         secrets: this.document.isOwner,

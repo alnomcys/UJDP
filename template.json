@@ -54,22 +54,22 @@
       "caracs": {
         "phy": {
           "value": "D10",
-          "faiblesse": 0,
+          "blessures": 0,
           "radioid": "radiophy"
         },
         "min": {
           "value": "D10",
-          "faiblesse": 0,
+          "blessures": 0,
           "radioid": "radiomin"
         },
         "per": {
           "value": "D10",
-          "faiblesse": 0,
+          "blessures": 0,
           "radioid": "radioper"
         },
         "pre": {
           "value": "D10",
-          "faiblesse": 0,
+          "blessures": 0,
           "radioid": "radiopre"
         }
       },
@@ -185,7 +185,7 @@
       "quantite": 1,
       "encombrement": 1,
       "atout": 1,
-      "description": ""
+      "notes": ""
     },
     "feature": {
       "templates": ["base"]

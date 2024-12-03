@@ -20,7 +20,7 @@ export default class UjdpActorBase extends UjdpDataModel {
       max: new fields.NumberField({ ...requiredInteger, initial: 0 })
     });
     schema.biography = new fields.StringField({ required: true, blank: true }); // equivalent to passing ({initial: ""}) for StringFields
-    schema.description = new fields.StringField({ required: true, blank: true }); // equivalent to passing ({initial: ""}) for StringFields
+    schema.notes = new fields.StringField({ required: true, blank: true }); // equivalent to passing ({initial: ""}) for StringFields
 
     return schema;
   }

@@ -6,7 +6,7 @@ export default class UjdpItemBase extends UjdpDataModel {
     const fields = foundry.data.fields;
     const schema = {};
 
-    schema.description = new fields.StringField({ required: true, blank: true });
+    schema.notes = new fields.StringField({ required: true, blank: true });
 
     return schema;
   }

@@ -62,7 +62,7 @@
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Traits et Outils</a>
     <a class="item" data-tab="items">Autre matériel</a>
-    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="notes">Notes</a>
   
   </nav>
 
@@ -84,8 +84,8 @@
                   <input type="radio" name="select-carac" id="{{carac.radioid}}" value= "{{carac.value}}"/>
                   <label for="{{carac.radioid}}" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.caracs key)}}">{{localize (lookup @root.config.caracs key)}}</label>
                   <input type="text" name="system.caracs.{{key}}.value" value="{{carac.value}}" data-value="{{carac.value}}" data-dtype="String"/>
-                  <label for="Faiblesses" class="resource-label flexlarge">Faiblesse</label>
-                 <input type="text" name="system.caracs.{{key}}.faiblesse" value="{{carac.faiblesse}}" data-value="{{carac.faiblesse}}" data-dtype="Number"/>
+                  <label for="Faiblesses" class="resource-label flexlarge">Blessures</label>
+                 <input type="text" name="system.caracs.{{key}}.blessures" value="{{carac.blessures}}" data-value="{{carac.blessures}}" data-dtype="Number"/>
                 </div>
               {{/each}} 
             </div>
@@ -137,8 +137,8 @@
       </section>
     </div>
 
-    {{!-- Description Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
+    {{!-- Notes Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="notes">
       {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
       {{editor enrichedBiography target="system.biography" engine="prosemirror" button=true editable=editable}}
     </div>

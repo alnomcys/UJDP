@@ -20,19 +20,19 @@
 
   {{! Sheet Tab Navigation }}
   <nav class='sheet-tabs tabs' data-group='primary'>
-    <a class='item' data-tab='description'>Description</a>
+    <a class='item' data-tab='notes'>Notes</a>
     <a class='item' data-tab='attributes'>Attributes</a>
   </nav>
 
   {{! Sheet Body }}
   <section class='sheet-body'>
 
-    {{! Description Tab }}
-    <div class='tab' data-group='primary' data-tab='description'>
+    {{! Notes Tab }}
+    <div class='tab' data-group='primary' data-tab='notes'>
       {{! Editors must receive enriched text data from getData to properly handle rolls }}
       {{editor
-        enrichedDescription
-        target='system.description'
+        enrichedNotes
+        target='system.notes'
         engine='prosemirror'
         button=true
         editable=editable

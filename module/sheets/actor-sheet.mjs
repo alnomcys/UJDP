@@ -188,11 +188,11 @@ export class UjdpActorSheet extends ActorSheet {
     const per = element[15].dataset.value;
     const pre = element[18].dataset.value;
 
-    //recup des faiblesses
-    const faibphy = element[10].dataset.value;
-    const faibmin = element[13].dataset.value;
-    const faibper = element[16].dataset.value;
-    const faibpre = element[19].dataset.value;
+    //recup des blessureslesses
+    const blessuresphy = element[10].dataset.value;
+    const blessuresmin = element[13].dataset.value;
+    const blessuresper = element[16].dataset.value;
+    const blessurespre = element[19].dataset.value;
 
     //recup des domaines
     const danger = element[21].dataset.value;
@@ -206,7 +206,7 @@ export class UjdpActorSheet extends ActorSheet {
     // variables pour le jet de dés
     var dcarac = "D10";
     var ddomaine = "D10";
-    var faiblesse = 0;
+    var blessures = 0;
     var atout = 0;
     var maladie = this.actor.system.maladie.value;
     var newEntropie = parseInt(bonus) + parseInt(this.actor.system.entropie.value);
@@ -215,19 +215,19 @@ export class UjdpActorSheet extends ActorSheet {
     //attribution de la carac sélectionnée
     if(element[8].checked){
       dcarac = phy;
-      faiblesse = faibphy;
+      blessures = blessuresphy;
     };
     if(element[11].checked){
       dcarac = min;
-      faiblesse = faibmin;
+      blessures = blessuresmin;
     };
     if(element[14].checked){
       dcarac = per;
-      faiblesse = faibper;
+      blessures = blessuresper;
     };
     if(element[17].checked){
       dcarac = pre;
-      faiblesse = faibpre;
+      blessures = blessurespre;
     };
 
     //attribution du domaine sélectionné
@@ -264,7 +264,7 @@ export class UjdpActorSheet extends ActorSheet {
       atout += atoutoutil[5];
     };
 
-    var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonus + " + " + atout + " - " + faiblesse + " - " + maladie; 
+    var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonus + " + " + atout + " - " + blessures + " - " + maladie; 
     formule = formule.replace("D", "d");
     formule = formule.replace("D", "d");
 

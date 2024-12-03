@@ -66,7 +66,7 @@ export class UjdpItem extends Item {
         speaker: speaker,
         rollMode: rollMode,
         flavor: label,
-        content: item.system.description ?? '',
+        content: item.system.notes ?? '',
       });
     }
     // Otherwise, create a roll and send a chat message from it.

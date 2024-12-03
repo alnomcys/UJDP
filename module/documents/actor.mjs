@@ -64,13 +64,13 @@ export class UjdpActor extends Actor {
 
     //Calcul encombrement
     var encombrementressources = parseInt(systemData.ressources.vivres.value) + parseInt(systemData.ressources.bricabrac.value) + parseInt(systemData.ressources.pharmacie.value) + Math.floor(parseInt(systemData.ressources.munitions.value)/5);
-    var encombrementoutils = 0;
-    for (let i = 0; i < 6; i++){      
-      encombrementoutils += parseInt(systemData.modifs[i].quantite) * parseInt(systemData.modifs[i].encombrement);
+    var encombrementmodifs = 0;
+    for (let i = 0; i < 8; i++){      
+      encombrementmodifs += parseInt(systemData.modifs[i].quantite) * parseInt(systemData.modifs[i].encombrement);
     }
-    //console.log(encombrementoutils);
+    console.log(encombrementmodifs);
     var encombrementtente = parseInt(systemData.vetements.tente.encombrement);
-    systemData.stocktotal.value = encombrementressources + encombrementoutils + encombrementtente; // à finir pour le remplissage des stockages.
+    systemData.stocktotal.value = encombrementressources + encombrementmodifs + encombrementtente; // à finir pour le remplissage des stockages.
 
     // Calcul stockagemax
     systemData.stocktotal.max = systemData.stockages.sursoi.max + systemData.stockages.sacados.max + systemData.stockages.sacappoint.max + systemData.stockages.chariot.max; //stockagetab[0] + stockagetab[1] + stockagetab[2]+ stockagetab[3];

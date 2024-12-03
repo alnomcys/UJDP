@@ -46,21 +46,21 @@ UJDP.stockageAbbreviations = {
 };
 
 UJDP.modifs = {
-  outil1: 'UJDP.Modifs.Outil1.long',
-  outil2: 'UJDP.Modifs.Outil2.long',
-  outil3: 'UJDP.Modifs.Outil3.long',
-  outil4: 'UJDP.Modifs.Outil4.long',
-  outil5: 'UJDP.Modifs.Outil5.long',
-  outil6: 'UJDP.Modifs.Outil6.long' 
+  outil1: 'UJDP.Modificateurs.Outil1.long',
+  outil2: 'UJDP.Modificateurs.Outil2.long',
+  outil3: 'UJDP.Modificateurs.Outil3.long',
+  outil4: 'UJDP.Modificateurs.Outil4.long',
+  outil5: 'UJDP.Modificateurs.Outil5.long',
+  outil6: 'UJDP.Modificateurs.Outil6.long' 
 };
 
 UJDP.outilsAbbreviations = {
-  outil1: 'UJDP.Modifs.Outil1.abbr',
-  outil2: 'UJDP.Modifs.Outil2.abbr',
-  outil3: 'UJDP.Modifs.Outil3.abbr',
-  outil4: 'UJDP.Modifs.Outil4.abbr',
-  outil5: 'UJDP.Modifs.Outil5.abbr',
-  outil6: 'UJDP.Modifs.Outil6.abbr'  
+  outil1: 'UJDP.Modificateurs.Outil1.abbr',
+  outil2: 'UJDP.Modificateurs.Outil2.abbr',
+  outil3: 'UJDP.Modificateurs.Outil3.abbr',
+  outil4: 'UJDP.Modificateurs.Outil4.abbr',
+  outil5: 'UJDP.Modificateurs.Outil5.abbr',
+  outil6: 'UJDP.Modificateurs.Outil6.abbr'  
 };
 
 UJDP.ressources = {

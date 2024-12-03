@@ -8,7 +8,7 @@ export class UjdpActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['ujdp', 'sheet', 'actor'],
       width: 700,
-      height: 600,
+      height: 680,
       tabs: [
         {
           navSelector: '.sheet-tabs',
@@ -180,7 +180,7 @@ export class UjdpActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.delegateTarget;
     //recup du bonus d'action
-    const bonusaction = element[2].dataset.bonus;
+    const bonusaction = element[7].dataset.bonus;
 
     //recup des caracs
     const phy = element[9].dataset.value;
@@ -202,10 +202,11 @@ export class UjdpActorSheet extends ActorSheet {
     // variables pour le jet de dés
     var dcarac = "D10";
     var ddomaine = "D10";
-    var bonus = 0;
-    var malus = 0;
+    var bonus = parseInt(0);
+    var malus = parseInt(0);
     var faiblesse = this.actor.system.faiblesse.value;
     var newEntropie = parseInt(bonusaction) + parseInt(this.actor.system.entropie.value);
+    console.log(newEntropie);
     this.actor.update({'system.entropie.value' : newEntropie});
     
     //attribution de la carac sélectionnée
@@ -236,56 +237,56 @@ export class UjdpActorSheet extends ActorSheet {
       ddomaine = foyer;   
     };
 
-    //attribution du bonus des Modifs sélectionnés
+    //attribution du bonus des Modificateurs sélectionnés
     if(element[24].checked){
-      bonus += atout[0];
+      bonus += parseInt(atout[0]);
     };
     if(element[26].checked){
-      bonus += atout[1];
+      bonus +=  parseInt(atout[1]);
     };
     if(element[28].checked){
-      bonus += atout[2];
+      bonus +=  parseInt(atout[2]);
     };
     if(element[30].checked){
-      bonus += atout[3];
+      bonus +=  parseInt(atout[3]);
     };
     if(element[32].checked){
-      bonus += atout[4];
+      bonus +=  parseInt(atout[4]);
     };
     if(element[34].checked){
-      bonus += atout[5];
+      bonus +=  parseInt(atout[5]);
     };
     if(element[36].checked){
-      bonus += atout[6];
+      bonus +=  parseInt(atout[6]);
     };
     if(element[38].checked){
-      bonus += atout[7];
+      bonus +=  parseInt(atout[7]);
     };
 
-    //attribution du malus des Modifs sélectionné
+    //attribution du malus des Modificateurs sélectionné
     if(element[24].checked){
-      malus += handicap[0];
+      malus +=  parseInt(handicap[0]);
     };
     if(element[26].checked){
-      malus += handicap[1];
+      malus +=  parseInt(handicap[1]);
     };
     if(element[28].checked){
-      malus += handicap[2];
+      malus +=  parseInt(handicap[2]);
     };
     if(element[30].checked){
-      malus += handicap[3];
+      malus +=  parseInt(handicap[3]);
     };
     if(element[32].checked){
-      malus += handicap[4];
+      malus +=  parseInt(handicap[4]);
     };
     if(element[34].checked){
-      malus += handicap[5];
+      malus +=  parseInt(handicap[5]);
     };
     if(element[36].checked){
-      malus += handicap[6];
+      malus +=  parseInt(handicap[6]);
     };
     if(element[38].checked){
-      malus += handicap[7];
+      malus +=  parseInt(handicap[7]);
     };
 
     var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonusaction + " + " + parseInt(bonus) + " - " + parseInt(malus) + " - " + faiblesse; 

@@ -208,7 +208,7 @@ export class UjdpActorSheet extends ActorSheet {
     var ddomaine = "D10";
     var blessures = 0;
     var atout = 0;
-    var maladie = this.actor.system.maladie.value;
+    var faiblesse = this.actor.system.faiblesse.value;
     var newEntropie = parseInt(bonus) + parseInt(this.actor.system.entropie.value);
     this.actor.update({'system.entropie.value' : newEntropie});
     
@@ -264,7 +264,7 @@ export class UjdpActorSheet extends ActorSheet {
       atout += atoutoutil[5];
     };
 
-    var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonus + " + " + atout + " - " + blessures + " - " + maladie; 
+    var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonus + " + " + atout + " - " + blessures + " - " + faiblesse; 
     formule = formule.replace("D", "d");
     formule = formule.replace("D", "d");
 

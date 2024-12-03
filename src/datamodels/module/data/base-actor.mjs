@@ -11,7 +11,7 @@ export default class UjdpActorBase extends UjdpDataModel {
       value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
       max: new fields.NumberField({ ...requiredInteger, initial: 0 })
     });
-    schema.maladie = new fields.SchemaField({
+    schema.faiblesse = new fields.SchemaField({
       value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
       max: new fields.NumberField({ ...requiredInteger, initial: 0 })
     });

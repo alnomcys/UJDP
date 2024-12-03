@@ -54,22 +54,18 @@
       "caracs": {
         "phy": {
           "value": "D10",
-          "blessures": 0,
           "radioid": "radiophy"
         },
         "min": {
           "value": "D10",
-          "blessures": 0,
           "radioid": "radiomin"
         },
         "per": {
           "value": "D10",
-          "blessures": 0,
           "radioid": "radioper"
         },
         "pre": {
           "value": "D10",
-          "blessures": 0,
           "radioid": "radiopre"
         }
       },
@@ -91,48 +87,70 @@
           "radioid": "radiofoyer"
         }
       },
-      "outils": [
+      "modifs": [
         {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
-          "atout": 0,
+          "bonus": 0,
+          "malus":0,
           "checkid": "checkoutil1"
         },
         {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
-          "atout": 0,
+          "bonus": 0,
+          "malus": 0,
           "checkid": "checkoutil2"
         },
         {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
-          "atout": 0,
+          "bonus": 0,
+          "malus": 0,
           "checkid": "checkoutil3"
         },
         {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
-          "atout": 0,
+          "bonus": 0,
+          "malus": 0,
           "checkid": "checkoutil4"
         },
         {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
-          "atout": 0,
+          "bonus": 0,
+          "malus": 0,
           "checkid": "checkoutil5"
         },
         {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
-          "atout": 0,
+          "bonus": 0,
+          "malus": 0,
           "checkid": "checkoutil6"
+        },
+        {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "bonus": 0,
+          "malus": 0,
+          "checkid": "checkoutil7"
+        },
+        {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "bonus": 0,
+          "malus": 0,
+          "checkid": "checkoutil8"
         }
       ],
       "ressources": {
@@ -184,7 +202,7 @@
       "templates": ["base"],
       "quantite": 1,
       "encombrement": 1,
-      "atout": 1,
+      "bonus": 1,
       "notes": ""
     },
     "feature": {

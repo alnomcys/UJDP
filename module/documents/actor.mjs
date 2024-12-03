@@ -66,7 +66,7 @@ export class UjdpActor extends Actor {
     var encombrementressources = parseInt(systemData.ressources.vivres.value) + parseInt(systemData.ressources.bricabrac.value) + parseInt(systemData.ressources.pharmacie.value) + Math.floor(parseInt(systemData.ressources.munitions.value)/5);
     var encombrementoutils = 0;
     for (let i = 0; i < 6; i++){      
-      encombrementoutils += parseInt(systemData.outils[i].quantite) * parseInt(systemData.outils[i].encombrement);
+      encombrementoutils += parseInt(systemData.modifs[i].quantite) * parseInt(systemData.modifs[i].encombrement);
     }
     //console.log(encombrementoutils);
     var encombrementtente = parseInt(systemData.vetements.tente.encombrement);

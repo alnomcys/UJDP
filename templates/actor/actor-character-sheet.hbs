@@ -18,7 +18,7 @@
           <button class="resource flex-group-center action" type="button">Action</button>
           <div class="caracs flexcol">
             <label for="system.bonus-action.value" class="resource-label">Bonus</label>
-            <input type="text" class="bonus" name="system.bonus-action.value" value="{{system.bonus-action.value}}" data-bonus="{{system.bonus-action.value}}" data-dtype="Number"/>
+            <input type="text" class="bonusaction" name="system.bonus-action.value" value="{{system.bonus-action.value}}" data-bonus="{{system.bonus-action.value}}" data-dtype="Number"/>
           </div>
         </div>
 
@@ -60,7 +60,7 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="features">Traits et Outils</a>
+    <a class="item" data-tab="features">Traits et Modifs</a>
     <a class="item" data-tab="items">Autre matériel</a>
     <a class="item" data-tab="notes">Notes</a>
   
@@ -84,8 +84,6 @@
                   <input type="radio" name="select-carac" id="{{carac.radioid}}" value= "{{carac.value}}"/>
                   <label for="{{carac.radioid}}" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.caracs key)}}">{{localize (lookup @root.config.caracs key)}}</label>
                   <input type="text" name="system.caracs.{{key}}.value" value="{{carac.value}}" data-value="{{carac.value}}" data-dtype="String"/>
-                  <label for="Faiblesses" class="resource-label flexlarge">Blessures</label>
-                 <input type="text" name="system.caracs.{{key}}.blessures" value="{{carac.blessures}}" data-value="{{carac.blessures}}" data-dtype="Number"/>
                 </div>
               {{/each}} 
             </div>
@@ -107,29 +105,31 @@
 
       <section class="grid grid-5col">
         <div class="caracs flexcol grid-span-5">
-         <label for="Outils" class="titre-label flexlarge align-center cadre">Outils</label>
+         <label for="Modifs" class="titre-label flexlarge align-center cadre">Modifs</label>
          <br>
         </div>
         <div class="caracs flexcol grid-span-2">
           <div>
-             {{#each system.outils as |outil key|}}
+             {{#each system.modifs as |modif key|}}
                 <div class="carac flexrow flex-group-center ">
-                  <input type="checkbox" name="{{outil.checkid}}" id="{{outil.checkid}}"/>
-                  <input type="text" name="system.outils.{{key}}.nom" value="{{outil.nom}}" data-dtype="String"/>
+                  <input type="checkbox" name="{{modif.checkid}}" id="{{modif.checkid}}"/>
+                  <input type="text" name="system.modifs.{{key}}.nom" value="{{modif.nom}}" data-dtype="String"/>
                  </div>
               {{/each}} 
           </div>
         </div>
          <div class="caracs flexcol grid-span-3">
           <div>
-             {{#each system.outils as |outil key|}}
+             {{#each system.modifs as |modif key|}}
                 <div class="carac flexrow flex-group-center ">
                   <label class="resource-label flexlarge align-center">Quantité</label>
-                  <input type="text" name="system.outils.{{key}}.quantite" value="{{outil.quantite}}" data-dtype="Number"/>
-                  <label class="resource-label flexlarge align-center">Atout</label>
-                  <input type="text" name="system.outils.{{key}}.atout" value="{{outil.atout}}" data-atout="{{outil.atout}}" data-dtype="Number"/>
+                  <input type="text" name="system.modifs.{{key}}.quantite" value="{{modif.quantite}}" data-dtype="Number"/>
+                  <label class="resource-label flexlarge align-center">Bonus</label>
+                  <input type="text" name="system.modifs.{{key}}.bonus" value="{{modif.bonus}}" data-bonus="{{modif.bonus}}" data-dtype="Number"/>
+                   <label class="resource-label flexlarge align-center">Malus</label>
+                  <input type="text" name="system.modifs.{{key}}.malus" value="{{modif.malus}}" data-malus="{{modif.malus}}" data-dtype="Number"/>
                   <label class="resource-label flexlarge align-center">Enc.</label>
-                  <input type="text" name="system.outils.{{key}}.encombrement" value="{{outil.encombrement}}" data-dtype="Number"/>
+                  <input type="text" name="system.modifs.{{key}}.encombrement" value="{{modif.encombrement}}" data-dtype="Number"/>
                  </div>
               {{/each}} 
           </div>

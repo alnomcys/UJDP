@@ -180,91 +180,115 @@ export class UjdpActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.delegateTarget;
     //recup du bonus d'action
-    const bonus = element[2].dataset.bonus;
+    const bonusaction = element[2].dataset.bonus;
 
     //recup des caracs
     const phy = element[9].dataset.value;
-    const min = element[12].dataset.value;
-    const per = element[15].dataset.value;
-    const pre = element[18].dataset.value;
-
-    //recup des blessureslesses
-    const blessuresphy = element[10].dataset.value;
-    const blessuresmin = element[13].dataset.value;
-    const blessuresper = element[16].dataset.value;
-    const blessurespre = element[19].dataset.value;
+    const min = element[11].dataset.value;
+    const per = element[13].dataset.value;
+    const pre = element[15].dataset.value;
 
     //recup des domaines
-    const danger = element[21].dataset.value;
-    const route = element[23].dataset.value;
-    const exploration = element[25].dataset.value;
-    const foyer = element[27].dataset.value;
+    const danger = element[17].dataset.value;
+    const route = element[19].dataset.value;
+    const exploration = element[21].dataset.value;
+    const foyer = element[23].dataset.value;
 
-    //recup des atouts d'outils
-    let atoutoutil = [element[41].dataset.atout, element[44].dataset.atout, element[47].dataset.atout, element[50].dataset.atout,element[53].dataset.atout, element[56].dataset.atout];
+    //recup des atouts d'modifs
+    let atout = [element[41].dataset.bonus, element[45].dataset.bonus, element[49].dataset.bonus, element[53].dataset.bonus,element[57].dataset.bonus, element[61].dataset.bonus,element[65].dataset.bonus, element[69].dataset.bonus];
     
+    let handicap = [element[42].dataset.malus, element[46].dataset.malus, element[50].dataset.malus, element[54].dataset.malus,element[58].dataset.malus, element[62].dataset.malus, element[66].dataset.malus, element[70].dataset.malus];
+
     // variables pour le jet de dés
     var dcarac = "D10";
     var ddomaine = "D10";
-    var blessures = 0;
-    var atout = 0;
+    var bonus = 0;
+    var malus = 0;
     var faiblesse = this.actor.system.faiblesse.value;
-    var newEntropie = parseInt(bonus) + parseInt(this.actor.system.entropie.value);
+    var newEntropie = parseInt(bonusaction) + parseInt(this.actor.system.entropie.value);
     this.actor.update({'system.entropie.value' : newEntropie});
     
     //attribution de la carac sélectionnée
     if(element[8].checked){
       dcarac = phy;
-      blessures = blessuresphy;
     };
     if(element[11].checked){
       dcarac = min;
-      blessures = blessuresmin;
     };
     if(element[14].checked){
       dcarac = per;
-      blessures = blessuresper;
     };
     if(element[17].checked){
       dcarac = pre;
-      blessures = blessurespre;
     };
 
     //attribution du domaine sélectionné
-    if(element[20].checked){
+    if(element[16].checked){
       ddomaine = danger;
     };
-    if(element[22].checked){
+    if(element[18].checked){
       ddomaine = route;
     };
-    if(element[24].checked){
+    if(element[20].checked){
       ddomaine = exploration;
     };
-    if(element[26].checked){
+    if(element[22].checked){
       ddomaine = foyer;   
     };
 
-    //attribution de l'atout des Outils sélectionné
+    //attribution du bonus des Modifs sélectionnés
+    if(element[24].checked){
+      bonus += atout[0];
+    };
+    if(element[26].checked){
+      bonus += atout[1];
+    };
     if(element[28].checked){
-      atout += atoutoutil[0];
+      bonus += atout[2];
     };
     if(element[30].checked){
-      atout += atoutoutil[1];
+      bonus += atout[3];
     };
     if(element[32].checked){
-      atout += atoutoutil[2];
+      bonus += atout[4];
     };
     if(element[34].checked){
-      atout += atoutoutil[3];
+      bonus += atout[5];
     };
     if(element[36].checked){
-      atout += atoutoutil[4];
+      bonus += atout[6];
     };
     if(element[38].checked){
-      atout += atoutoutil[5];
+      bonus += atout[7];
     };
 
-    var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonus + " + " + atout + " - " + blessures + " - " + faiblesse; 
+    //attribution du malus des Modifs sélectionné
+    if(element[24].checked){
+      malus += handicap[0];
+    };
+    if(element[26].checked){
+      malus += handicap[1];
+    };
+    if(element[28].checked){
+      malus += handicap[2];
+    };
+    if(element[30].checked){
+      malus += handicap[3];
+    };
+    if(element[32].checked){
+      malus += handicap[4];
+    };
+    if(element[34].checked){
+      malus += handicap[5];
+    };
+    if(element[36].checked){
+      malus += handicap[6];
+    };
+    if(element[38].checked){
+      malus += handicap[7];
+    };
+
+    var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonusaction + " + " + parseInt(bonus) + " - " + parseInt(malus) + " - " + faiblesse; 
     formule = formule.replace("D", "d");
     formule = formule.replace("D", "d");
 
@@ -274,8 +298,6 @@ export class UjdpActorSheet extends ActorSheet {
       flavor: formule
     });
     console.log(formule);
-    console.log("bonus : " + dcarac + " + " +  bonus);
-    console.log("domaine : " + ddomaine);
 
     console.log (event);
    
@@ -288,28 +310,28 @@ export class UjdpActorSheet extends ActorSheet {
     
     //Mise à jour des valeurs max de stockage selon les stockages cochées
       
-      if(element[58].checked){       
+      if(element[72].checked){       
         max = 6;
         this.actor.update({'system.stockages.sursoi.max' : max});
       } else{        
         max = 0;
         this.actor.update({'system.stockages.sursoi.max' : max});
       };
-      if(element[61].checked){
+      if(element[75].checked){
         max = 12;
         this.actor.update({'system.stockages.sacados.max' : max});
       } else{
         max = 0;
         this.actor.update({'system.stockages.sacados.max' : max});
       };
-      if(element[64].checked){
+      if(element[78].checked){
         max = 8;
         this.actor.update({'system.stockages.sacappoint.max' : max});
       } else{
         max = 0;
         this.actor.update({'system.stockages.sacappoint.max' : max});
       };
-      if(element[67].checked){
+      if(element[81].checked){
         max = 20;
         this.actor.update({'system.stockages.chariot.max' : max});
       } else{
@@ -322,7 +344,7 @@ export class UjdpActorSheet extends ActorSheet {
     ev.preventDefault();
     const element = ev.delegateTarget;
     let enc = 3;    
-    if(element[77].checked){       
+    if(element[91].checked){       
       enc = 3;
       this.actor.update({'system.vetements.tente.encombrement' : enc});
     } else{        

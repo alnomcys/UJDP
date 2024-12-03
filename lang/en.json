@@ -18,7 +18,7 @@
       "Sacappoint": { "long": "Sac d'appoint", "abbr": "Sacappoint" },
       "Chariot": { "long": "Chariot", "abbr": "Chariot" }
     },
-    "Outil": {
+    "Modif": {
       "Outil1": { "long": "Outil1", "abbr": "Outil1" },
       "Outil2": { "long": "Outil2", "abbr": "Outil2" },
       "Outil3": { "long": "Outil3", "abbr": "Outil3" },

@@ -72,7 +72,7 @@
             <button class="item flex-group-center action" type="button">ACTION !</button>
             </br>
             <div class="resource flexrow flex-group-center">
-              <label for="system.bonus-action.value" class="resource-label">Avantage</label>
+              <label for="system.bonus-action.value" class="resource-label">Bonus d'Action</label>
               <input type="text" class="bonusaction" name="system.bonus-action.value" value="{{system.bonus-action.value}}" data-bonus="{{system.bonus-action.value}}" data-dtype="Number"/>
             </div>
           </div>
@@ -82,25 +82,27 @@
               <div>
              {{#each system.caracs as |carac key|}}
                 <div class="carac flexrow flex-group-center">
-                  <input type="checkbox" class="checkcarac" name="system.caracs.{{key}}.check" {{checked carac.check}}/>
+                  <input type="radio" name="select-carac" id="{{carac.radioid}}" value= "{{carac.value}}"/>
                   <label for="{{carac.radioid}}" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.caracs key)}}">{{localize (lookup @root.config.caracs key)}}</label>
                   <input type="text" name="system.caracs.{{key}}.value" value="{{carac.value}}" data-value="{{carac.value}}" data-dtype="String"/>
                 </div>
               {{/each}} 
             </div>
           </div>
-          <div class="caracs flexcol">
-              <label for="Domaines" class="titre-label flexlarge align-center cadre">Domaines</label>
+          <div class="caracs">
+              <div class="carac flexrow flex-group-center">
+                <label for="Domaines" class="titre-label cadre">Domaines</label>
+              </div>
               <br>
               <div>
-             {{#each system.domaines as |domaine key|}}
-                <div class="carac flexrow flex-group-center">
-                  <input type="checkbox" class="checkdomaine" name="system.domaines.{{key}}.check" {{checked domaine.check}}/>
-                  <label for="system.domaines.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.domaines key)}}">{{localize (lookup @root.config.domaines key)}}</label>
-                  <input type="text" name="system.domaines.{{key}}.value" value="{{domaine.value}}" data-value="{{domaine.value}}" data-dtype="String"/>
-                 </div>
-              {{/each}} 
-            </div>
+                {{#each system.domaines as |domaine key|}}
+                  <div class="carac flexrow flex-group-center">
+                    <input type="radio" name="select-domaine" id="{{domaine.radioid}}"/>
+                    <label for="system.domaines.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.domaines key)}}">{{localize (lookup @root.config.domaines key)}}</label>
+                    <input type="text" name="system.domaines.{{key}}.value" value="{{domaine.value}}" data-value="{{domaine.value}}" data-dtype="String"/>
+                  </div>
+                {{/each}} 
+              </div>
           </div>
       </section>
 
@@ -113,7 +115,7 @@
           <div>
              {{#each system.outils as |outil key|}}
                 <div class="carac flexrow flex-group-center ">
-                  <input type="checkbox" class="checkoutil" name="system.outils.{{key}}.check" {{checked outil.check}}/>
+                  <input type="checkbox" name="{{outil.checkid}}" id="{{outil.checkid}}"/>
                   <input type="text" name="system.outils.{{key}}.nom" value="{{outil.nom}}" data-dtype="String"/>
                  </div>
               {{/each}} 
@@ -127,36 +129,10 @@
                   <input type="text" name="system.outils.{{key}}.quantite" value="{{outil.quantite}}" data-dtype="Number"/>
                   <label class="resource-label flexlarge align-center">Bonus</label>
                   <input type="text" name="system.outils.{{key}}.bonus" value="{{outil.bonus}}" data-bonus="{{outil.bonus}}" data-dtype="Number"/>
+                   <label class="resource-label flexlarge align-center">Malus</label>
+                  <input type="text" name="system.outils.{{key}}.malus" value="{{outil.malus}}" data-malus="{{outil.malus}}" data-dtype="Number"/>
                   <label class="resource-label flexlarge align-center">Enc.</label>
                   <input type="text" name="system.outils.{{key}}.encombrement" value="{{outil.encombrement}}" data-dtype="Number"/>
-                 </div>
-              {{/each}} 
-          </div>
-        </div>
-      </section>
-      <section class="grid grid-5col">
-        <div class="caracs flexcol grid-span-5">
-         <label for="Etats" class="titre-label flexlarge align-center cadre">États</label>
-         <br>
-        </div>
-        <div class="caracs flexcol grid-span-3">
-          <div>
-             {{#each system.etats as |etat key|}}
-                <div class="carac flexrow flex-group-center ">
-                  <input type="checkbox" class="checketat" name="system.etats.{{key}}.check" {{checked etat.check}}/>
-                  <input type="text" name="system.etats.{{key}}.nom" value="{{etat.nom}}" data-dtype="String"/>
-                 </div>
-              {{/each}} 
-          </div>
-        </div>
-         <div class="caracs flexcol grid-span-2">
-          <div>
-             {{#each system.etats as |etat key|}}
-                <div class="carac flexrow flex-group-center ">
-                  <label class="resource-label flexlarge align-center">Malus</label>
-                  <input type="text" name="system.etats.{{key}}.malus" value="{{etat.malus}}" data-malus="{{etat.malus}}" data-dtype="Number"/>
-                  <label class="resource-label flexlarge align-center">Conv.</label>
-                  <input type="text" name="system.etats.{{key}}.convalescence" value="{{etat.convalescence}}" data-dtype="Number"/>
                  </div>
               {{/each}} 
           </div>

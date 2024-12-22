@@ -32,10 +32,10 @@ export class UjdpActor extends Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.ujdp || {};
 
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
+    // Make separate methods for each Actor type (character, child, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
+    this._prepareChildData(actorData);
   }
 
   /**
@@ -47,40 +47,40 @@ export class UjdpActor extends Actor {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
     
-    // Loop through carac scores, and add their modifiers to our sheet output.
+    /* Loop through carac scores, and add their modifiers to our sheet output.
     for (let [key, carac] of Object.entries(systemData.caracs)) {
       // Calculate the modifier using d20 rules.
       carac.mod = Math.floor((carac.value - 10) / 2);
-    }
+    }*/
 
     //Repos max 10
     if(systemData.repos.value > 10){systemData.repos.value = 10;}
 
     // Repos qui dimune l'entropie
-    while(systemData.repos.value >= 5 && systemData.entropie.value >= 1){
+    /*while(systemData.repos.value >= 5 && systemData.entropie.value >= 1){
       systemData.repos.value -= 5;
       systemData.entropie.value -= 1;
-    }
+    }*/
 
     //Calcul encombrement
     var encombrementressources = parseInt(systemData.ressources.vivres.value) + parseInt(systemData.ressources.bricabrac.value) + parseInt(systemData.ressources.pharmacie.value) + Math.floor(parseInt(systemData.ressources.munitions.value)/5);
-    var encombrementmodifs = 0;
-    for (let i = 0; i < 8; i++){      
-      encombrementmodifs += parseInt(systemData.modifs[i].quantite) * parseInt(systemData.modifs[i].encombrement);
+    var encombrementoutils = 0;
+    for (let [key, outil] of Object.entries(systemData.outils)){      
+      encombrementoutils += parseInt(outil.quantite) * parseInt(outil.encombrement);
     }
-    console.log(encombrementmodifs);
+    console.log(encombrementoutils);
     var encombrementtente = parseInt(systemData.vetements.tente.encombrement);
-    systemData.stocktotal.value = encombrementressources + encombrementmodifs + encombrementtente; // à finir pour le remplissage des stockages.
+    systemData.stocktotal.value = encombrementressources + encombrementoutils + encombrementtente; // à finir pour le remplissage des stockages.
 
     // Calcul stockagemax
     systemData.stocktotal.max = systemData.stockages.sursoi.max + systemData.stockages.sacados.max + systemData.stockages.sacappoint.max + systemData.stockages.chariot.max; //stockagetab[0] + stockagetab[1] + stockagetab[2]+ stockagetab[3];
   }
 
   /**
-   * Prepare NPC type specific data.
+   * Prepare Child type specific data.
    */
-  _prepareNpcData(actorData) {
-    if (actorData.type !== 'npc') return;
+  _prepareChildData(actorData) {
+    if (actorData.type !== 'child') return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
@@ -96,7 +96,7 @@ export class UjdpActor extends Actor {
 
     // Prepare character roll data.
     this._getCharacterRollData(data);
-    this._getNpcRollData(data);
+    this._getChildRollData(data);
 
     return data;
   }
@@ -122,11 +122,11 @@ export class UjdpActor extends Actor {
   }
 
   /**
-   * Prepare NPC roll data.
+   * Prepare Child roll data.
    */
-  _getNpcRollData(data) {
-    if (this.type !== 'npc') return;
+  _getChildRollData(data) {
+    if (this.type !== 'child') return;
 
-    // Process additional NPC data here.
+    // Process additional Child data here.
   }
 }

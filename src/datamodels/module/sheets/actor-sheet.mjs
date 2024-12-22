@@ -51,8 +51,8 @@ export class UjdpActorSheet extends ActorSheet {
       this._prepareCharacterData(context);
     }
 
-    // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
+    // Prepare Child data and items.
+    if (actorData.type == 'child') {
       this._prepareItems(context);
     }
 

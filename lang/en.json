@@ -9,7 +9,6 @@
     "Domaine": {
       "Danger": { "long": "Danger", "abbr": "dan" },
       "Route": { "long": "Route", "abbr": "rou" },
-      "Exploration": { "long": "Exploration", "abbr": "exp" },
       "Foyer": { "long": "Foyer", "abbr": "foy" }
     },
     "Stockage": {
@@ -18,7 +17,7 @@
       "Sacappoint": { "long": "Sac d'appoint", "abbr": "Sacappoint" },
       "Chariot": { "long": "Chariot", "abbr": "Chariot" }
     },
-    "Modif": {
+    "Outil": {
       "Outil1": { "long": "Outil1", "abbr": "Outil1" },
       "Outil2": { "long": "Outil2", "abbr": "Outil2" },
       "Outil3": { "long": "Outil3", "abbr": "Outil3" },
@@ -62,7 +61,7 @@
   "TYPES": {
     "Actor": {
       "character": "Character",
-      "npc": "NPC"
+      "child": "Child"
     }
   }
 }

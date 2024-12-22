@@ -1,7 +1,7 @@
 // Export Actors
 export {default as UjdpActorBase} from "./base-actor.mjs";
 export {default as UjdpCharacter} from "./actor-character.mjs";
-export {default as UjdpNPC} from "./actor-npc.mjs";
+export {default as UjdpNPC} from "./actor-child.mjs";
 
 // Export Items
 export {default as UjdpItemBase} from "./base-item.mjs";

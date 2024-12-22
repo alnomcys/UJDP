@@ -7,8 +7,8 @@ export class UjdpActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['ujdp', 'sheet', 'actor'],
-      width: 700,
-      height: 680,
+      width: 630,
+      height: 780,
       tabs: [
         {
           navSelector: '.sheet-tabs',
@@ -52,8 +52,8 @@ export class UjdpActorSheet extends ActorSheet {
       this._prepareCharacterData(context);
     }
 
-    // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
+    // Prepare Child data and items.
+    if (actorData.type == 'child') {
       this._prepareItems(context);
     }
 
@@ -191,13 +191,12 @@ export class UjdpActorSheet extends ActorSheet {
     //recup des domaines
     const danger = element[17].dataset.value;
     const route = element[19].dataset.value;
-    const exploration = element[21].dataset.value;
-    const foyer = element[23].dataset.value;
+    const foyer = element[21].dataset.value;
 
-    //recup des atouts d'modifs
-    let atout = [element[41].dataset.bonus, element[45].dataset.bonus, element[49].dataset.bonus, element[53].dataset.bonus,element[57].dataset.bonus, element[61].dataset.bonus,element[65].dataset.bonus, element[69].dataset.bonus];
-    
-    let handicap = [element[42].dataset.malus, element[46].dataset.malus, element[50].dataset.malus, element[54].dataset.malus,element[58].dataset.malus, element[62].dataset.malus, element[66].dataset.malus, element[70].dataset.malus];
+    //recup des atouts d'outils
+    let atout = [element[35].dataset.bonus, element[38].dataset.bonus, element[41].dataset.bonus, element[44].dataset.bonus,element[47].dataset.bonus, element[50].dataset.bonus];
+    // recup des hzndicaps d'état
+    let handicap = [element[62].dataset.malus, element[64].dataset.malus, element[66].dataset.malus, element[68].dataset.malus,element[70].dataset.malus];
 
     // variables pour le jet de dés
     var dcarac = "D10";
@@ -213,13 +212,13 @@ export class UjdpActorSheet extends ActorSheet {
     if(element[8].checked){
       dcarac = phy;
     };
-    if(element[11].checked){
+    if(element[10].checked){
       dcarac = min;
     };
-    if(element[14].checked){
+    if(element[12].checked){
       dcarac = per;
     };
-    if(element[17].checked){
+    if(element[14].checked){
       dcarac = pre;
     };
 
@@ -231,62 +230,44 @@ export class UjdpActorSheet extends ActorSheet {
       ddomaine = route;
     };
     if(element[20].checked){
-      ddomaine = exploration;
-    };
-    if(element[22].checked){
       ddomaine = foyer;   
     };
 
-    //attribution du bonus des Modificateurs sélectionnés
-    if(element[24].checked){
+    //attribution du bonus des Outils sélectionnés
+    if(element[22].checked){
       bonus += parseInt(atout[0]);
     };
-    if(element[26].checked){
+    if(element[24].checked){
       bonus +=  parseInt(atout[1]);
     };
-    if(element[28].checked){
+    if(element[26].checked){
       bonus +=  parseInt(atout[2]);
     };
-    if(element[30].checked){
+    if(element[28].checked){
       bonus +=  parseInt(atout[3]);
     };
-    if(element[32].checked){
+    if(element[30].checked){
       bonus +=  parseInt(atout[4]);
     };
-    if(element[34].checked){
+    if(element[32].checked){
       bonus +=  parseInt(atout[5]);
     };
-    if(element[36].checked){
-      bonus +=  parseInt(atout[6]);
-    };
-    if(element[38].checked){
-      bonus +=  parseInt(atout[7]);
-    };
 
-    //attribution du malus des Modificateurs sélectionné
-    if(element[24].checked){
+    //attribution du malus des Etats sélectionné
+    if(element[52].checked){
       malus +=  parseInt(handicap[0]);
     };
-    if(element[26].checked){
+    if(element[54].checked){
       malus +=  parseInt(handicap[1]);
     };
-    if(element[28].checked){
+    if(element[56].checked){
       malus +=  parseInt(handicap[2]);
     };
-    if(element[30].checked){
+    if(element[58].checked){
       malus +=  parseInt(handicap[3]);
     };
-    if(element[32].checked){
+    if(element[60].checked){
       malus +=  parseInt(handicap[4]);
-    };
-    if(element[34].checked){
-      malus +=  parseInt(handicap[5]);
-    };
-    if(element[36].checked){
-      malus +=  parseInt(handicap[6]);
-    };
-    if(element[38].checked){
-      malus +=  parseInt(handicap[7]);
     };
 
     var formule = "{" + dcarac + "," + ddomaine + "}kh + " + bonusaction + " + " + parseInt(bonus) + " - " + parseInt(malus) + " - " + faiblesse; 

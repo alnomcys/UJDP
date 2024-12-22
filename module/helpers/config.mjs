@@ -20,14 +20,12 @@ UJDP.caracAbbreviations = {
 UJDP.domaines = {
   danger: 'UJDP.Domaine.Danger.long',
   route: 'UJDP.Domaine.Route.long',
-  exploration: 'UJDP.Domaine.Exploration.long',
   foyer: 'UJDP.Domaine.Foyer.long',
 };
 
 UJDP.domaineAbbreviations = {
   danger: 'UJDP.Domaine.Danger.abbr',
   route: 'UJDP.Domaine.Route.abbr',
-  exploration: 'UJDP.Domaine.Exploration.abbr',
   foyer: 'UJDP.Domaine.Foyer.abbr',
 };
 
@@ -45,22 +43,38 @@ UJDP.stockageAbbreviations = {
   chariot: 'UJDP.Stockage.Chariot.abbr'
 };
 
-UJDP.modifs = {
-  outil1: 'UJDP.Modificateurs.Outil1.long',
-  outil2: 'UJDP.Modificateurs.Outil2.long',
-  outil3: 'UJDP.Modificateurs.Outil3.long',
-  outil4: 'UJDP.Modificateurs.Outil4.long',
-  outil5: 'UJDP.Modificateurs.Outil5.long',
-  outil6: 'UJDP.Modificateurs.Outil6.long' 
+UJDP.outils = {
+  outil1: 'UJDP.Outils.Outil1.long',
+  outil2: 'UJDP.Outils.Outil2.long',
+  outil3: 'UJDP.Outils.Outil3.long',
+  outil4: 'UJDP.Outils.Outil4.long',
+  outil5: 'UJDP.Outils.Outil5.long',
+  outil6: 'UJDP.Outils.Outil6.long' 
 };
 
 UJDP.outilsAbbreviations = {
-  outil1: 'UJDP.Modificateurs.Outil1.abbr',
-  outil2: 'UJDP.Modificateurs.Outil2.abbr',
-  outil3: 'UJDP.Modificateurs.Outil3.abbr',
-  outil4: 'UJDP.Modificateurs.Outil4.abbr',
-  outil5: 'UJDP.Modificateurs.Outil5.abbr',
-  outil6: 'UJDP.Modificateurs.Outil6.abbr'  
+  outil1: 'UJDP.Outils.Outil1.abbr',
+  outil2: 'UJDP.Outils.Outil2.abbr',
+  outil3: 'UJDP.Outils.Outil3.abbr',
+  outil4: 'UJDP.Outils.Outil4.abbr',
+  outil5: 'UJDP.Outils.Outil5.abbr',
+  outil6: 'UJDP.Outils.Outil6.abbr'  
+};
+
+UJDP.etats = {
+  etat1: 'UJDP.Etats.Etat1.long',
+  etat2: 'UJDP.Etats.Etat2.long',
+  etat3: 'UJDP.Etats.Etat3.long',
+  etat4: 'UJDP.Etats.Etat4.long',
+  etat5: 'UJDP.Etats.Etat5.long'
+};
+
+UJDP.etatsAbbreviations = {
+  etat1: 'UJDP.Etats.Etat1.abbr',
+  etat2: 'UJDP.Etats.Etat2.abbr',
+  etat3: 'UJDP.Etats.Etat3.abbr',
+  etat4: 'UJDP.Etats.Etat4.abbr',
+  etat5: 'UJDP.Etats.Etat5.abbr'
 };
 
 UJDP.ressources = {

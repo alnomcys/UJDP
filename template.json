@@ -1,9 +1,27 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": ["character", "child"],
     "templates": {
       "base": {
-       
+       "vetements": {
+        "chauds": {
+          "checkid": "checkchauds",
+          "check": false 
+        },
+        "etanches": {
+          "checkid": "checketanches",
+          "check": false 
+        },
+        "chaussures": {
+          "checkid": "checkchaussures",
+          "check": false 
+        },
+        "tente": {
+          "checkid": "checktente",
+          "encombrement": 0,
+          "check": false 
+        }
+      }
       }
     },
     "character": {
@@ -54,105 +72,129 @@
       "caracs": {
         "phy": {
           "value": "D10",
-          "radioid": "radiophy"
+          "radioid": "radiophy",
+          "check": false
         },
         "min": {
           "value": "D10",
-          "radioid": "radiomin"
+          "radioid": "radiomin",
+          "check": false
         },
         "per": {
           "value": "D10",
-          "radioid": "radioper"
+          "radioid": "radioper",
+          "check": false
         },
         "pre": {
           "value": "D10",
-          "radioid": "radiopre"
+          "radioid": "radiopre",
+          "check": false
         }
       },
       "domaines": {
         "danger": {
           "value": "D10",
-          "radioid": "radiodanger"
+          "radioid": "radiodanger",
+          "check": false
         },
         "route": {
           "value": "D10",
-          "radioid": "radioroute"
-        },
-        "exploration": {
-          "value": "D10",
-          "radioid": "radioexploration"
+          "radioid": "radioroute",
+          "check": false
         },
         "foyer": {
           "value": "D10",
-          "radioid": "radiofoyer"
+          "radioid": "radiofoyer",
+          "check": false
         }
       },
-      "modifs": [
-        {
+      "outils": {
+        "outil1": {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "bonus": 0,
-          "malus":0,
-          "checkid": "checkoutil1"
+          "checkid": "checkoutil1",
+          "check": false
         },
-        {
+        "outil2": {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "bonus": 0,
-          "malus": 0,
-          "checkid": "checkoutil2"
+          "checkid": "checkoutil2",
+          "check": false
         },
-        {
+        "outil3": {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "bonus": 0,
-          "malus": 0,
-          "checkid": "checkoutil3"
+          "checkid": "checkoutil3",
+          "check": false
         },
-        {
+        "outil4": {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "bonus": 0,
-          "malus": 0,
-          "checkid": "checkoutil4"
+          "checkid": "checkoutil4",
+          "check": false
         },
-        {
+        "outil5": {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "bonus": 0,
-          "malus": 0,
-          "checkid": "checkoutil5"
+          "checkid": "checkoutil5",
+          "check": false
         },
-        {
+        "outil6": {
           "nom": "",
           "quantite": 0,
           "encombrement": 0,
           "bonus": 0,
-          "malus": 0,
-          "checkid": "checkoutil6"
-        },
-        {
-          "nom": "",
-          "quantite": 0,
-          "encombrement": 0,
-          "bonus": 0,
-          "malus": 0,
-          "checkid": "checkoutil7"
-        },
-        {
-          "nom": "",
-          "quantite": 0,
-          "encombrement": 0,
-          "bonus": 0,
-          "malus": 0,
-          "checkid": "checkoutil8"
+          "checkid": "checkoutil6",
+          "check": false
         }
-      ],
+      },
+      "etats": {
+        "etat1": {
+          "nom": "",
+          "convalescence": 0,
+          "malus": 0,
+          "checkid": "checketat1",
+          "check": false
+        },
+        "etat2": {
+          "nom": "",
+          "convalescence": 0,
+          "malus": 0,
+          "checkid": "checketat2",
+          "check": false
+        },
+        "etat3": {
+          "nom": "",
+          "convalescence": 0,
+          "malus": 0,
+          "checkid": "checketat3",
+          "check": false
+        },
+        "etat4": {
+          "nom": "",
+          "convalescence": 0,
+          "malus": 0,
+          "checkid": "checketat4",
+          "check": false
+        },
+        "etat5": {
+          "nom": "",
+          "convalescence": 0,
+          "malus": 0,
+          "checkid": "checketat5",
+          "check": false
+        }
+      },
       "ressources": {
         "vivres": {
           "value": 0
@@ -166,28 +208,9 @@
         "munitions": {
           "value": 0
         }
-      },
-      "vetements": {
-        "chauds": {
-          "checkid": "checkchauds",
-          "check": false 
-        },
-        "etanches": {
-          "checkid": "checketanches",
-          "check": false 
-        },
-        "chaussures": {
-          "checkid": "checkchaussures",
-          "check": false 
-        },
-        "tente": {
-          "checkid": "checktente",
-          "encombrement": 0,
-          "check": false 
-        }
       }
     },
-    "npc": {
+    "child": {
       "rang": 8
     }
   },

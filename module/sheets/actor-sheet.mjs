@@ -55,6 +55,7 @@ export class UjdpActorSheet extends ActorSheet {
     // Prepare Child data and items.
     if (actorData.type == 'child') {
       this._prepareItems(context);
+      this._prepareChildData(context);
     }
 
     // Enrich biography info for display
@@ -81,6 +82,12 @@ export class UjdpActorSheet extends ActorSheet {
    * @param {object} context The context object to mutate
    */
   _prepareCharacterData(context) {
+    // This is where you can enrich character-specific editor fields
+    // or setup anything else that's specific to this type
+   
+  }
+
+  _prepareChildData(context) {
     // This is where you can enrich character-specific editor fields
     // or setup anything else that's specific to this type
    
@@ -128,11 +135,35 @@ export class UjdpActorSheet extends ActorSheet {
     // bouton d'action.
     html.on('click', '.action', this._onRoll.bind(this));
 
-     //checkbox de stockage.
+    // bouton d'autonomie.
+    html.on('click', '.autonomie', this._onRollAuto.bind(this));
+
+    // bouton d'enfantillage.
+    html.on('click', '.enfantillage', this._onRollEnf.bind(this));
+
+    //checkbox de stockage.
     html.on('change','.checkstockage',this._onCheck.bind(this));
 
     // checkbox de tente.
     html.on('change', '.checktente', this._onCheckTente.bind(this));
+
+    //checkbox de doudou.
+    html.on('change','.checkdoudou',this._onCheckDoudou.bind(this));
+
+    //checkbox d'objet1.
+    html.on('change','.checkobjet1',this._onCheckObj1.bind(this));
+
+    //checkbox d'objet2.
+    html.on('change','.checkobjet2',this._onCheckObj2.bind(this));
+
+    //checkbox d'objet3.
+    html.on('change','.checkobjet3',this._onCheckObj3.bind(this));
+
+    //checkbox d'objet4.
+    html.on('change','.checkobjet4',this._onCheckObj4.bind(this));
+
+    //checkbox d'objet5.
+    html.on('change','.checkobjet5',this._onCheckObj5.bind(this));
 
 
     // Drag events for macros.
@@ -180,23 +211,23 @@ export class UjdpActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.delegateTarget;
     //recup du bonus d'action
-    const bonusaction = element[7].dataset.bonus;
+    const bonusaction = element[8].dataset.bonus;
 
     //recup des caracs
-    const phy = element[9].dataset.value;
-    const min = element[11].dataset.value;
-    const per = element[13].dataset.value;
-    const pre = element[15].dataset.value;
+    const phy = element[10].dataset.value;
+    const min = element[12].dataset.value;
+    const per = element[14].dataset.value;
+    const pre = element[16].dataset.value;
 
     //recup des domaines
-    const danger = element[17].dataset.value;
-    const route = element[19].dataset.value;
-    const foyer = element[21].dataset.value;
+    const danger = element[18].dataset.value;
+    const route = element[20].dataset.value;
+    const foyer = element[22].dataset.value;
 
     //recup des atouts d'outils
-    let atout = [element[35].dataset.bonus, element[38].dataset.bonus, element[41].dataset.bonus, element[44].dataset.bonus,element[47].dataset.bonus, element[50].dataset.bonus];
+    let atout = [element[36].dataset.bonus, element[39].dataset.bonus, element[42].dataset.bonus, element[45].dataset.bonus,element[48].dataset.bonus, element[51].dataset.bonus];
     // recup des hzndicaps d'état
-    let handicap = [element[62].dataset.malus, element[64].dataset.malus, element[66].dataset.malus, element[68].dataset.malus,element[70].dataset.malus];
+    let handicap = [element[63].dataset.malus, element[65].dataset.malus, element[67].dataset.malus, element[69].dataset.malus,element[71].dataset.malus];
 
     // variables pour le jet de dés
     var dcarac = "D10";
@@ -209,64 +240,64 @@ export class UjdpActorSheet extends ActorSheet {
     this.actor.update({'system.entropie.value' : newEntropie});
     
     //attribution de la carac sélectionnée
-    if(element[8].checked){
+    if(element[9].checked){
       dcarac = phy;
     };
-    if(element[10].checked){
+    if(element[11].checked){
       dcarac = min;
     };
-    if(element[12].checked){
+    if(element[13].checked){
       dcarac = per;
     };
-    if(element[14].checked){
+    if(element[15].checked){
       dcarac = pre;
     };
 
     //attribution du domaine sélectionné
-    if(element[16].checked){
+    if(element[17].checked){
       ddomaine = danger;
     };
-    if(element[18].checked){
+    if(element[19].checked){
       ddomaine = route;
     };
-    if(element[20].checked){
+    if(element[21].checked){
       ddomaine = foyer;   
     };
 
     //attribution du bonus des Outils sélectionnés
-    if(element[22].checked){
+    if(element[23].checked){
       bonus += parseInt(atout[0]);
     };
-    if(element[24].checked){
+    if(element[25].checked){
       bonus +=  parseInt(atout[1]);
     };
-    if(element[26].checked){
+    if(element[27].checked){
       bonus +=  parseInt(atout[2]);
     };
-    if(element[28].checked){
+    if(element[29].checked){
       bonus +=  parseInt(atout[3]);
     };
-    if(element[30].checked){
+    if(element[31].checked){
       bonus +=  parseInt(atout[4]);
     };
-    if(element[32].checked){
+    if(element[33].checked){
       bonus +=  parseInt(atout[5]);
     };
 
     //attribution du malus des Etats sélectionné
-    if(element[52].checked){
+    if(element[53].checked){
       malus +=  parseInt(handicap[0]);
     };
-    if(element[54].checked){
+    if(element[55].checked){
       malus +=  parseInt(handicap[1]);
     };
-    if(element[56].checked){
+    if(element[57].checked){
       malus +=  parseInt(handicap[2]);
     };
-    if(element[58].checked){
+    if(element[59].checked){
       malus +=  parseInt(handicap[3]);
     };
-    if(element[60].checked){
+    if(element[61].checked){
       malus +=  parseInt(handicap[4]);
     };
 
@@ -284,6 +315,96 @@ export class UjdpActorSheet extends ActorSheet {
     console.log (event);
    
   }
+  _onRollAuto(event) {
+    event.preventDefault();
+    console.log (event);
+    const element = event.delegateTarget;
+
+    //init autonomie et bonus
+    let autonomie = element[2].dataset.autonomie;
+    let bonus = 0;
+
+    //recup des atouts d'objets
+    let atout = [element[24].dataset.bonus, element[27].dataset.bonus, element[30].dataset.bonus, element[33].dataset.bonus,element[36].dataset.bonus];
+    
+    // variables pour le jet de dés
+    const dauto = "d12";
+    var ddomaine = "D10";
+    let complicationenf= "";
+       
+    //attribution du bonus des Objets sélectionnés
+    if(element[13].checked){
+      bonus += parseInt(atout[0]);
+    };
+    if(element[15].checked){
+      bonus +=  parseInt(atout[1]);
+    };
+    if(element[17].checked){
+      bonus +=  parseInt(atout[2]);
+    };
+    if(element[19].checked){
+      bonus +=  parseInt(atout[3]);
+    };
+    if(element[21].checked){
+      bonus +=  parseInt(atout[4]);
+    };
+    
+    autonomie += bonus;
+
+    var formule = "d20"; 
+    
+    let roll = new Roll(formule);
+        
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({actor: this.actor}),
+      flavor: formule
+    });
+    console.log(formule);
+  }
+
+  _onRollEnf(event) {
+    event.preventDefault();
+    console.log (event);
+    const element = event.delegateTarget;
+
+    //recup du bonus d'action
+    let autonomie = element[7].dataset.autonomie;
+
+    //recup des atouts d'outils
+    let atout = [element[35].dataset.bonus, element[38].dataset.bonus, element[41].dataset.bonus, element[44].dataset.bonus,element[47].dataset.bonus];
+    
+    // variables pour le jet de dés
+    const dauto = "d12";
+    var ddomaine = "D10";
+       
+    //attribution du bonus des Objets sélectionnés
+    if(element[22].checked){
+      bonus += parseInt(atout[0]);
+    };
+    if(element[24].checked){
+      bonus +=  parseInt(atout[1]);
+    };
+    if(element[26].checked){
+      bonus +=  parseInt(atout[2]);
+    };
+    if(element[28].checked){
+      bonus +=  parseInt(atout[3]);
+    };
+    if(element[30].checked){
+      bonus +=  parseInt(atout[4]);
+    };
+    autonomie += bonus;
+
+    var formule = "d12 + " + bonusaction + " + " + parseInt(bonus) + " - " + parseInt(malus) + " - " + faiblesse; 
+    
+    let roll = new Roll(formule);
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({actor: this.actor}),
+      flavor: formule
+    });
+    console.log(formule);
+  }
+
   _onCheck(ev) {
     ev.preventDefault();
     const element = ev.delegateTarget;
@@ -292,28 +413,28 @@ export class UjdpActorSheet extends ActorSheet {
     
     //Mise à jour des valeurs max de stockage selon les stockages cochées
       
-      if(element[72].checked){       
+      if(element[73].checked){       
         max = 6;
         this.actor.update({'system.stockages.sursoi.max' : max});
       } else{        
         max = 0;
         this.actor.update({'system.stockages.sursoi.max' : max});
       };
-      if(element[75].checked){
+      if(element[76].checked){
         max = 12;
         this.actor.update({'system.stockages.sacados.max' : max});
       } else{
         max = 0;
         this.actor.update({'system.stockages.sacados.max' : max});
       };
-      if(element[78].checked){
+      if(element[79].checked){
         max = 8;
         this.actor.update({'system.stockages.sacappoint.max' : max});
       } else{
         max = 0;
         this.actor.update({'system.stockages.sacappoint.max' : max});
       };
-      if(element[81].checked){
+      if(element[82].checked){
         max = 20;
         this.actor.update({'system.stockages.chariot.max' : max});
       } else{
@@ -326,7 +447,7 @@ export class UjdpActorSheet extends ActorSheet {
     ev.preventDefault();
     const element = ev.delegateTarget;
     let enc = 3;    
-    if(element[91].checked){       
+    if(element[92].checked){       
       enc = 3;
       this.actor.update({'system.vetements.tente.encombrement' : enc});
     } else{        
@@ -334,4 +455,83 @@ export class UjdpActorSheet extends ActorSheet {
       this.actor.update({'system.vetements.tente.encombrement' : enc});
     };
   }
+  //Check doudou
+  _onCheckDoudou(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let newDesespoir = parseInt(element[5].dataset.desespoir);      
+    if(element[11].checked){       
+      newDesespoir -= 3;
+      this.actor.update({'system.desespoir.value' : newDesespoir});
+    } else{        
+      newDesespoir += 3;
+      this.actor.update({'system.desespoir.value' : newDesespoir});
+    };
+  }
+
+  //Check Objet 1
+  _onCheckObj1(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let newAutonomie = parseInt(element[2].dataset.autonomie);    
+    
+    
+    if(element[13].checked){       
+      newAutonomie += parseInt(element[24].dataset.bonus);
+      this.actor.update({'system.autonomie.value' : newAutonomie});
+    } else{        
+      newAutonomie -= parseInt(element[24].dataset.bonus);
+      this.actor.update({'system.autonomie.value' :newAutonomie});
+    };
+  }
+  _onCheckObj2(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let newAutonomie = parseInt(element[2].dataset.autonomie);    
+    if(element[15].checked){       
+      newAutonomie += parseInt(element[27].dataset.bonus);
+      this.actor.update({'system.autonomie.value' : newAutonomie});
+    } else{        
+      newAutonomie -= parseInt(element[27].dataset.bonus);
+      this.actor.update({'system.autonomie.value' :newAutonomie});
+    };
+  }
+  _onCheckObj3(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let newAutonomie = parseInt(element[2].dataset.autonomie);    
+    if(element[17].checked){       
+      newAutonomie += parseInt(element[30].dataset.bonus);
+      this.actor.update({'system.autonomie.value' : newAutonomie});
+    } else{        
+      newAutonomie -= parseInt(element[30].dataset.bonus);
+      this.actor.update({'system.autonomie.value' :newAutonomie});
+    };
+  }
+  _onCheckObj4(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let newAutonomie = parseInt(element[2].dataset.autonomie);    
+    if(element[19].checked){       
+      newAutonomie += parseInt(element[33].dataset.bonus);
+      this.actor.update({'system.autonomie.value' : newAutonomie});
+    } else{        
+      newAutonomie -= parseInt(element[33].dataset.bonus);
+      this.actor.update({'system.autonomie.value' :newAutonomie});
+    };
+  }
+  _onCheckObj5(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let newAutonomie = parseInt(element[2].dataset.autonomie);    
+    if(element[21].checked){       
+      newAutonomie += parseInt(element[36].dataset.bonus);
+      this.actor.update({'system.autonomie.value' : newAutonomie});
+    } else{        
+      newAutonomie -= parseInt(element[36].dataset.bonus);
+      this.actor.update({'system.autonomie.value' :newAutonomie});
+    };
+  }
+  
+  
 }

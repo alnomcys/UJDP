@@ -9,30 +9,38 @@
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns.  --}}
         
-      <div class="resources grid grid-4col">
+      <div class="resources grid grid-5col">
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
         center all of its child elements content and text. --}}
-        
         <div class="resource flex-group-center">
-          <label for="system.entropie.value" class="resource-label">Entropie</label>
+          <label for="system.age.value" class="resource-label">Âge</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.entropie.value" value="{{system.entropie.value}}" data-dtype="Number"/>
+           <input type="text" name="system.age.value" value="{{system.age.value}}" data-age="{{system.age.value}} data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.autonomie.value" class="resource-label">Autonomie</label>
+          <div class="resource-content flexrow flex-center flex-between">
+           <input type="text" name="system.autonomie.value" value="{{system.autonomie.value}}" data-autonomie="{{system.autonomie.value}}  data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
           <label for="system.repos.value" class="resource-label">Repos</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.repos.value" value="{{system.repos.value}}" data-dtype="Number"/>
+            <input type="text" name="system.repos.value" value="{{system.repos.value}}" data-dtype="Number"/>
+            <span> / </span>
+           <input type="text" name="system.repos.max" value="{{system.repos.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.faiblesse.value" class="resource-label">Faiblesse</label>
+          <label for="system.desespoir.value" class="resource-label">Désespoir</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.faiblesse.value" value="{{system.faiblesse.value}}" data-dtype="Number"/>
+            <input type="text" name="system.desespoir.value" value="{{system.desespoir.value}}" data-desespoir="{{system.desespoir.value}}" data-dtype="Number"/>
           </div>
         </div>
 
@@ -53,8 +61,7 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="features">Traits et Outils</a>
-    <a class="item" data-tab="items">Autre matériel</a>
+    <a class="item" data-tab="features">Principal</a>
     <a class="item" data-tab="notes">Notes</a>
   
   </nav>
@@ -63,135 +70,108 @@
   <section class="sheet-body">
     {{!-- Owned Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
-      <section class="grid grid-3col">
-       
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns.  --}}
-          <div class="resource flexcol flex-group-center">
-            <button class="item flex-group-center action" type="button">ACTION !</button>
-            </br>
-            <div class="resource flexrow flex-group-center">
-              <label for="system.bonus-action.value" class="resource-label">Bonus d'Action</label>
-              <input type="text" class="bonusaction" name="system.bonus-action.value" value="{{system.bonus-action.value}}" data-bonus="{{system.bonus-action.value}}" data-dtype="Number"/>
-            </div>
+      <section class="grid grid-5col"> 
+        <div class="resource flexcol flex-group-center grid-span-2">
+          <button class="item flex-group-center autonomie" type="button">Autonomie !</button>
+        </div>
+        <div class="resource flexcol flex-group-center grid-span-2">
+          <button class="item flex-group-center enfantillage" type="button">Enfantillage !</button>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.joie.value" class="resource-label">Joie</label>
+          <div class="resource-content flexrow flex-center flex-between">
+           <input type="text" name="system.joie.value" value="{{system.joie.value}}" data-dtype="Number"/>
           </div>
-          <div class="caracs flexcol">
-              <label for="Caracteristiques" class="titre-label flexlarge align-center cadre">Caractéristiques</label>
-               <br>
-              <div>
-             {{#each system.caracs as |carac key|}}
-                <div class="carac flexrow flex-group-center">
-                  <input type="radio" name="select-carac" id="{{carac.radioid}}" value= "{{carac.value}}"/>
-                  <label for="{{carac.radioid}}" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.caracs key)}}">{{localize (lookup @root.config.caracs key)}}</label>
-                  <input type="text" name="system.caracs.{{key}}.value" value="{{carac.value}}" data-value="{{carac.value}}" data-dtype="String"/>
-                </div>
-              {{/each}} 
-            </div>
-          </div>
-          <div class="caracs">
-              <div class="carac flexrow flex-group-center">
-                <label for="Domaines" class="titre-label cadre">Domaines</label>
-              </div>
-              <br>
-              <div>
-                {{#each system.domaines as |domaine key|}}
-                  <div class="carac flexrow flex-group-center">
-                    <input type="radio" name="select-domaine" id="{{domaine.radioid}}"/>
-                    <label for="system.domaines.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.domaines key)}}">{{localize (lookup @root.config.domaines key)}}</label>
-                    <input type="text" name="system.domaines.{{key}}.value" value="{{domaine.value}}" data-value="{{domaine.value}}" data-dtype="String"/>
-                  </div>
-                {{/each}} 
-              </div>
-          </div>
-      </section>
-
+        </div>
+      </section>   
       <section class="grid grid-5col">
         <div class="caracs flexcol grid-span-5">
-         <label for="Outils" class="titre-label flexlarge align-center cadre">Outils</label>
+         <label for="Objets" class="titre-label flexlarge align-center cadre">Objets</label>
          <br>
+        </div>
+        <div class="carac flexrow flex-group-center grid-span-1">
+          <input type="checkbox" class="checkdoudou" name="system.doudou.check" {{checked system.doudou.check}}/>
+          <label for="system.doudou.check" class="resource-label flexlarge align-center">Doudou</label>
+        </div>
+        <div class="carac flexrow flex-group-center grid-span-4">
+          <input type="text" name="system.doudou.description" value="{{system.doudou.description}}" data-dtype="String"/>
+          
         </div>
         <div class="caracs flexcol grid-span-2">
           <div>
-             {{#each system.outils as |outil key|}}
+             {{#each system.objets as |objet key|}}
                 <div class="carac flexrow flex-group-center ">
-                  <input type="checkbox" name="{{outil.checkid}}" id="{{outil.checkid}}"/>
-                  <input type="text" name="system.outils.{{key}}.nom" value="{{outil.nom}}" data-dtype="String"/>
+                  <input type="checkbox" class="check{{key}}" name="system.objets.{{key}}.check" {{checked objet.check}}/>
+                  <input type="text" name="system.objets.{{key}}.nom" value="{{objet.nom}}" data-dtype="String"/>
                  </div>
               {{/each}} 
           </div>
         </div>
          <div class="caracs flexcol grid-span-3">
           <div>
-             {{#each system.outils as |outil key|}}
+             {{#each system.objets as |objet key|}}
                 <div class="carac flexrow flex-group-center ">
                   <label class="resource-label flexlarge align-center">Quantité</label>
-                  <input type="text" name="system.outils.{{key}}.quantite" value="{{outil.quantite}}" data-dtype="Number"/>
+                  <input type="text" name="system.objets.{{key}}.quantite" value="{{objet.quantite}}" data-dtype="Number"/>
                   <label class="resource-label flexlarge align-center">Bonus</label>
-                  <input type="text" name="system.outils.{{key}}.bonus" value="{{outil.bonus}}" data-bonus="{{outil.bonus}}" data-dtype="Number"/>
-                   <label class="resource-label flexlarge align-center">Malus</label>
-                  <input type="text" name="system.outils.{{key}}.malus" value="{{outil.malus}}" data-malus="{{outil.malus}}" data-dtype="Number"/>
+                  <input type="text" name="system.objets.{{key}}.bonus" value="{{objet.bonus}}" data-bonus="{{objet.bonus}}" data-dtype="Number"/>
                   <label class="resource-label flexlarge align-center">Enc.</label>
-                  <input type="text" name="system.outils.{{key}}.encombrement" value="{{outil.encombrement}}" data-dtype="Number"/>
+                  <input type="text" name="system.objets.{{key}}.encombrement" value="{{objet.encombrement}}" data-dtype="Number"/>
                  </div>
               {{/each}} 
           </div>
         </div>
       </section>
-    </div>
-
-    {{!-- Notes Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="notes">
-      {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
-      {{editor enrichedBiography target="system.biography" engine="prosemirror" button=true editable=editable}}
-    </div>
-
-    {{!-- Materiel Tab --}}
-    <div class="tab items" data-group="primary" data-tab="items">
-      <section class="grid grid-7col">
-        {{!-- Stockages --}}
+      <section class="grid grid-5col">
+        <div class="caracs flexcol grid-span-5">
+         <label for="Etats" class="titre-label flexlarge align-center cadre">États</label>
+         <br>
+        </div>
         <div class="caracs flexcol grid-span-3">
-         <label for="Stockage" class="titre-label flexlarge align-center cadre">Stockage</label>
-         <br>
-         <div>
-            {{#each system.stockages as |stockage key|}}
-            <div class="carac flexrow flex-group-center">
-              <input type="checkbox" class="checkstockage" name="system.stockages.{{key}}.check" {{checked stockage.check}}/>
-              <label for="system.stockages.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.stockages key)}}">{{localize (lookup @root.config.stockages key)}}</label>
-              <input type="text" name="system.stockages.{{key}}.value" value="{{stockage.value}}" data-dtype="Number"/>
-              <span> / </span>
-              <input type="text" name="system.stockages.{{key}}.max" value="{{stockage.max}}" data-valeur="{{stockage.max}}" data-dtype="Number"/>
-            </div>
-            {{/each}} 
+          <div>
+             {{#each system.etats as |etat key|}}
+                <div class="carac flexrow flex-group-center ">
+                  <input type="checkbox" class="checketat" name="system.etats.{{key}}.check" {{checked etat.check}}/>
+                  <input type="text" name="system.etats.{{key}}.nom" value="{{etat.nom}}" data-dtype="String"/>
+                 </div>
+              {{/each}} 
           </div>
         </div>
-        {{!-- Ressources --}}
-        <div class="caracs flexcol grid-span-2">
-         <label for="Ressources" class="titre-label flexlarge align-center cadre">Ressources</label>
-         <br>
-         <div>
-            {{#each system.ressources as |ressource key|}}
-            <div class="carac flexrow flex-group-center">
-              <label for="system.ressources.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.ressources key)}}">{{localize (lookup @root.config.ressources key)}}</label>
-              <input type="text" name="system.ressources.{{key}}.value" value="{{ressource.value}}" data-dtype="Number"/>
+         <div class="caracs flexcol grid-span-2">
+           <div>
+             {{#each system.etats as |etat key|}}
+                <div class="carac flexrow flex-group-center ">
+                  <label class="resource-label flexlarge align-center">Malus</label>
+                  <input type="text" name="system.etats.{{key}}.malus" value="{{etat.malus}}" data-malus="{{etat.malus}}" data-dtype="Number"/>
+                  <label class="resource-label flexlarge align-center">Conv.</label>
+                  <input type="text" name="system.etats.{{key}}.convalescence" value="{{etat.convalescence}}" data-dtype="Number"/>
+                 </div>
+              {{/each}} 
             </div>
-            {{/each}} 
           </div>
-        </div>
+        </section>
+
         {{!-- Vêtements --}}
-        <div class="caracs flexcol grid-span-2">
+        <section class="grid grid-3col">
+          <div class="caracs flexcol">
          <label for="Vetements" class="titre-label flexlarge align-center cadre">Vêtements</label>
           <br>
          <div>
             {{#each system.vetements as |vetement key|}}
             <div class="carac flexrow flex-group-center">
-              <input type="checkbox" class="checktente" name="system.vetements.{{key}}.check" {{checked vetement.check}}/>
+              <input type="checkbox" class="checkvetement" name="system.vetements.{{key}}.check" {{checked vetement.check}}/>
               <label for="system.vetements.{{key}}.check" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.vetements key)}}">{{localize (lookup @root.config.vetements key)}}</label>
             </div>
             {{/each}}
           </div>
         </div>
         </section>
-        
+    </div>
+
+
+    {{!-- Notes Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="notes">
+      {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
+      {{editor enrichedBiography target="system.biography" engine="prosemirror" button=true editable=editable}}
     </div>
 </form>

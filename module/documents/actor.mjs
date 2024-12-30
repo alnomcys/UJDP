@@ -56,12 +56,6 @@ export class UjdpActor extends Actor {
     //Repos max 10
     if(systemData.repos.value > 10){systemData.repos.value = 10;}
 
-    // Repos qui dimune l'entropie
-    /*while(systemData.repos.value >= 5 && systemData.entropie.value >= 1){
-      systemData.repos.value -= 5;
-      systemData.entropie.value -= 1;
-    }*/
-
     //Calcul encombrement
     var encombrementressources = parseInt(systemData.ressources.vivres.value) + parseInt(systemData.ressources.bricabrac.value) + parseInt(systemData.ressources.pharmacie.value) + Math.floor(parseInt(systemData.ressources.munitions.value)/5);
     var encombrementoutils = 0;
@@ -70,7 +64,7 @@ export class UjdpActor extends Actor {
     }
     console.log(encombrementoutils);
     var encombrementtente = parseInt(systemData.vetements.tente.encombrement);
-    systemData.stocktotal.value = encombrementressources + encombrementoutils + encombrementtente; // à finir pour le remplissage des stockages.
+    systemData.stocktotal.value = encombrementressources + encombrementoutils + encombrementtente; 
 
     // Calcul stockagemax
     systemData.stocktotal.max = systemData.stockages.sursoi.max + systemData.stockages.sacados.max + systemData.stockages.sacappoint.max + systemData.stockages.chariot.max; //stockagetab[0] + stockagetab[1] + stockagetab[2]+ stockagetab[3];
@@ -84,7 +78,18 @@ export class UjdpActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-    systemData.xp = systemData.rang * systemData.rang * 100;
+
+    //Stockagemax = age
+
+    systemData.stocktotal.max = systemData.age.value;
+
+    // Joie -> Désespoir
+    
+    while(systemData.desespoir.value >= 1 && systemData.joie.value >= 1){
+      systemData.desespoir.value -= 1;
+      systemData.joie.value -= 1;
+    }
+    
   }
 
   /**

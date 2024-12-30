@@ -3,25 +3,6 @@
     "types": ["character", "child"],
     "templates": {
       "base": {
-       "vetements": {
-        "chauds": {
-          "checkid": "checkchauds",
-          "check": false 
-        },
-        "etanches": {
-          "checkid": "checketanches",
-          "check": false 
-        },
-        "chaussures": {
-          "checkid": "checkchaussures",
-          "check": false 
-        },
-        "tente": {
-          "checkid": "checktente",
-          "encombrement": 0,
-          "check": false 
-        }
-      }
       }
     },
     "character": {
@@ -33,8 +14,8 @@
         "value": 0
       },
       "stocktotal": {
-      "value": 0,
-      "max": 0
+       "value": 0,
+       "max": 0
       },
       "stockages": {
         "sursoi": {
@@ -62,11 +43,31 @@
         "check": false 
         }
       },
+      "vetements": {
+          "chauds": {
+            "checkid": "checkchauds",
+            "check": false 
+          },
+          "etanches": {
+            "checkid": "checketanches",
+            "check": false 
+          },
+          "chaussures": {
+           "checkid": "checkchaussures",
+            "check": false 
+          },
+          "tente": {
+            "checkid": "checktente",
+            "encombrement": 0,
+            "check": false 
+          }
+        },
        "faiblesse": {
         "value": 0
       },
       "repos": {
-        "value": 0
+        "value": 0,
+        "max": 10
       },
       "biography": "",
       "caracs": {
@@ -211,7 +212,112 @@
       }
     },
     "child": {
-      "rang": 8
+      "templates": ["base"],
+      "age": {
+        "value": 0
+      },
+      "autonomie": {
+        "value": 0,
+        "max": 0
+      },
+      "desespoir": {
+        "value": 0
+      },
+      "repos": {
+        "value": 0,
+        "max": 10
+      },
+      "joie": {
+        "value": 0
+      },
+      "vetements": {
+          "chauds": {
+            "checkid": "checkchauds",
+            "check": false 
+          },
+          "etanches": {
+            "checkid": "checketanches",
+            "check": false 
+          },
+          "chaussures": {
+           "checkid": "checkchaussures",
+            "check": true 
+          }
+        },
+      "stocktotal": {
+       "value": 0,
+       "max": 6
+      },
+      "doudou": {
+        "description": "",
+        "checkid": "checkdoudou",
+        "check": false
+      },
+      "objets": {
+        "objet1": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "bonus": 0,
+          "checkid": "checkobjet1",
+          "check": false
+        },
+        "objet2": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "bonus": 0,
+          "checkid": "checkobjet2",
+          "check": false
+        },
+        "objet3": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "bonus": 0,
+          "checkid": "checkobjet3",
+          "check": false
+        },
+        "objet4": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "bonus": 0,
+          "checkid": "checkobjet4",
+          "check": false
+        },
+        "objet5": {
+          "nom": "",
+          "quantite": 0,
+          "encombrement": 0,
+          "bonus": 0,
+          "checkid": "checkobjet5",
+          "check": false
+        }
+      },
+      "etats": {
+        "etat1": {
+          "nom": "",
+          "convalescence": 0,
+          "malus": 0,
+          "checkid": "checketat1",
+          "check": false
+        },
+        "etat2": {
+          "nom": "",
+          "convalescence": 0,
+          "malus": 0,
+          "checkid": "checketat2",
+          "check": false
+        },
+        "etat3": {
+          "nom": "",
+          "convalescence": 0,
+          "malus": 0,
+          "checkid": "checketat3",
+          "check": false
+        }
+      }
     }
   },
   "Item": {

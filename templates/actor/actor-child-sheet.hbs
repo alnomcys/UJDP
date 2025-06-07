@@ -17,7 +17,7 @@
         <div class="resource flex-group-center">
           <label for="system.age.value" class="resource-label">Âge</label>
           <div class="resource-content flexrow flex-center flex-between">
-           <input type="text" name="system.age.value" value="{{system.age.value}}" data-age="{{system.age.value}} data-dtype="Number"/>
+           <input type="text" name="system.age.value" value="{{system.age.value}}" data-age="{{system.age.value}}" data-dtype="Number"/>
           </div>
         </div>
 
@@ -93,25 +93,29 @@
           <input type="checkbox" class="checkdoudou" name="system.doudou.check" {{checked system.doudou.check}}/>
           <label for="system.doudou.check" class="resource-label flexlarge align-center">Doudou</label>
         </div>
-        <div class="carac flexrow flex-group-center grid-span-4">
+        <div class="carac flexrow flex-group-center grid-span-3">
           <input type="text" name="system.doudou.description" value="{{system.doudou.description}}" data-dtype="String"/>
-          
+        </div>
+        <div class="carac flexrow flex-group-center grid-span-1">
+          <label for="system.doudou.check" class="resource-label flexlarge align-center">(+2 au Tests de Réconfort)</label>
         </div>
         <div class="caracs flexcol grid-span-2">
           <div>
-             {{#each system.objets as |objet key|}}
+            {{#each system.objets as |objet key|}}
                 <div class="carac flexrow flex-group-center ">
                   <input type="checkbox" class="check{{key}}" name="system.objets.{{key}}.check" {{checked objet.check}}/>
                   <input type="text" name="system.objets.{{key}}.nom" value="{{objet.nom}}" data-dtype="String"/>
                  </div>
-              {{/each}} 
+            {{/each}} 
           </div>
         </div>
          <div class="caracs flexcol grid-span-3">
           <div>
              {{#each system.objets as |objet key|}}
                 <div class="carac flexrow flex-group-center ">
-                  <label class="resource-label flexlarge align-center">Quantité</label>
+                  <label class="resource-label flexlarge align-center">Jouet</label>
+                  <input type="checkbox" class="checkjouet{{key}}" name="system.objets.{{key}}.jouet" {{checked objet.jouet}}/>
+                  <label class="resource-label flexlarge align-center">Quant.</label>
                   <input type="text" name="system.objets.{{key}}.quantite" value="{{objet.quantite}}" data-dtype="Number"/>
                   <label class="resource-label flexlarge align-center">Bonus</label>
                   <input type="text" name="system.objets.{{key}}.bonus" value="{{objet.bonus}}" data-bonus="{{objet.bonus}}" data-dtype="Number"/>
@@ -131,7 +135,7 @@
           <div>
              {{#each system.etats as |etat key|}}
                 <div class="carac flexrow flex-group-center ">
-                  <input type="checkbox" class="checketat" name="system.etats.{{key}}.check" {{checked etat.check}}/>
+                  <input type="checkbox" class="check{{key}}" name="system.etats.{{key}}.check" {{checked etat.check}}/>
                   <input type="text" name="system.etats.{{key}}.nom" value="{{etat.nom}}" data-dtype="String"/>
                  </div>
               {{/each}} 
@@ -151,23 +155,52 @@
           </div>
         </section>
 
+
+        <section class="grid grid-10col">
         {{!-- Vêtements --}}
-        <section class="grid grid-3col">
-          <div class="caracs flexcol">
-         <label for="Vetements" class="titre-label flexlarge align-center cadre">Vêtements</label>
-          <br>
-         <div>
-            {{#each system.vetements as |vetement key|}}
-            <div class="carac flexrow flex-group-center">
-              <input type="checkbox" class="checkvetement" name="system.vetements.{{key}}.check" {{checked vetement.check}}/>
+          <div class="caracs flexcol grid-span-2">
+            <label class="titre-label flexlarge align-center cadre">Vêtements</label>
+            <br>
+            <div>
+              {{#each system.vetements as |vetement key|}}
+              <div class="carac flexrow flex-group-center">
+              <input type="checkbox" class="check{{key}}" name="system.vetements.{{key}}.check" {{checked vetement.check}}/>
               <label for="system.vetements.{{key}}.check" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.vetements key)}}">{{localize (lookup @root.config.vetements key)}}</label>
+              </div>
+              {{/each}}
             </div>
-            {{/each}}
           </div>
-        </div>
+        {{!-- liens --}}
+         <div class="caracs flexcol grid-span-8">
+            <label class="titre-label flexlarge align-center cadre">Liens</label>
+             <br>
+             <div class="caracs flexrow grid-span-6">
+             <div class="carac flexcol grid-span-1">
+                <label for="nomadulte1" class="resource-label flexlarge align-center">Adulte 1</label>
+                <label for="nomadulte2" class="resource-label flexlarge align-center">Adulte 2</label>
+                <label for="nomadulte3" class="resource-label flexlarge align-center">Adulte 3</label>
+              </div>
+              <div class="carac flexcol grid-span-3">
+                {{#each system.liens as |lien key|}}
+                <input type="text" name="system.liens.{{key}}.nomadulte" value="{{lien.nomadulte}}" data-dtype="String""/>
+                {{/each}}
+              </div>
+              <div class="carac flexcol">
+                <label for="lienadulte1" class="resource-label flexlarge align-center">lien</label>
+                <label for="lienadulte2" class="resource-label flexlarge align-center">lien</label>
+                <label for="lienadulte3" class="resource-label flexlarge align-center">lien</label>
+              </div>
+              <div class="carac flexcol grid-span-3">
+                {{#each system.liens as |lien key|}}
+                <input type="text" name="system.liens.{{key}}.type" value="{{lien.type}}" data-dtype="String"/>
+                {{/each}}
+              </div>
+            </div>
+          </div>
         </section>
     </div>
 
+{
 
     {{!-- Notes Tab --}}
     <div class="tab biography" data-group="primary" data-tab="notes">

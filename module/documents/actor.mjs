@@ -54,7 +54,12 @@ export class UjdpActor extends Actor {
     }*/
 
     //Repos max 10
-    if(systemData.repos.value > 10){systemData.repos.value = 10;}
+    if(systemData.repos.value > 5){systemData.repos.value = 5;}
+    
+    // Défaut avantage
+    if (!Number.isInteger(systemData.avantage.value)){
+      systemData.avantage.value = 0;
+      }
 
     //Calcul encombrement
     var encombrementressources = parseInt(systemData.ressources.vivres.value) + parseInt(systemData.ressources.bricabrac.value) + parseInt(systemData.ressources.pharmacie.value) + Math.floor(parseInt(systemData.ressources.munitions.value)/5);
@@ -83,6 +88,17 @@ export class UjdpActor extends Actor {
 
     systemData.stocktotal.max = systemData.age.value;
 
+    // min joie = 0
+
+    if (systemData.joie.value < 0){
+      systemData.joie.value = 0;
+    }
+
+        //Min Autonomie
+    if (systemData.autonomie.value < 0){
+      systemData.autonomie.value = 0;
+    }
+
     // Joie -> Désespoir
     
     while(systemData.desespoir.value >= 1 && systemData.joie.value >= 1){
@@ -90,6 +106,22 @@ export class UjdpActor extends Actor {
       systemData.joie.value -= 1;
     }
     
+     // Min Désespoir
+     if (systemData.desespoir.value < 0){
+      systemData.desespoir.value = 0;
+    }
+    
+
+     //Calcul encombrement
+    let encombrementobjets = 0;
+    let encombrementdoudou = 0;
+    for (let [key, objet] of Object.entries(systemData.objets)){      
+      encombrementobjets += parseInt(objet.quantite) * parseInt(objet.encombrement);
+    }
+    if (systemData.doudou.check){
+      encombrementdoudou = 1;
+    }
+    systemData.stocktotal.value = encombrementobjets + encombrementdoudou; 
   }
 
   /**

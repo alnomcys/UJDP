@@ -10,7 +10,7 @@
       "entropie": {
         "value": 0
       },
-      "bonus-action": {
+      "avantage": {
         "value": 0
       },
       "stocktotal": {
@@ -67,7 +67,7 @@
       },
       "repos": {
         "value": 0,
-        "max": 10
+        "max": 5
       },
       "biography": "",
       "caracs": {
@@ -225,7 +225,7 @@
       },
       "repos": {
         "value": 0,
-        "max": 10
+        "max": 5
       },
       "joie": {
         "value": 0
@@ -260,7 +260,8 @@
           "encombrement": 0,
           "bonus": 0,
           "checkid": "checkobjet1",
-          "check": false
+          "check": false,
+          "jouet": false
         },
         "objet2": {
           "nom": "",
@@ -268,7 +269,8 @@
           "encombrement": 0,
           "bonus": 0,
           "checkid": "checkobjet2",
-          "check": false
+          "check": false,
+          "jouet": false
         },
         "objet3": {
           "nom": "",
@@ -276,7 +278,8 @@
           "encombrement": 0,
           "bonus": 0,
           "checkid": "checkobjet3",
-          "check": false
+          "check": false,
+          "jouet": false
         },
         "objet4": {
           "nom": "",
@@ -284,7 +287,8 @@
           "encombrement": 0,
           "bonus": 0,
           "checkid": "checkobjet4",
-          "check": false
+          "check": false,
+          "jouet": false
         },
         "objet5": {
           "nom": "",
@@ -292,7 +296,8 @@
           "encombrement": 0,
           "bonus": 0,
           "checkid": "checkobjet5",
-          "check": false
+          "check": false,
+          "jouet": false
         }
       },
       "etats": {
@@ -316,6 +321,20 @@
           "malus": 0,
           "checkid": "checketat3",
           "check": false
+        }
+      },
+      "liens": {
+        "lien1": {
+          "nomadulte":"",
+          "type":""
+        },
+        "lien2": {
+          "nomadulte":"",
+          "type":""
+        },
+        "lien3": {
+          "nomadulte":"",
+          "type":""
         }
       }
     }

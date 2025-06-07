@@ -88,10 +88,18 @@ export class UjdpActor extends Actor {
 
     systemData.stocktotal.max = systemData.age.value;
 
-    // min joie = 0
+    
 
-    if (systemData.joie.value < 0){
-      systemData.joie.value = 0;
+    // min seuildejoie = 0
+
+    if (systemData.seuildejoie.value < 1){
+      systemData.seuildejoie.value = 1;
+    }
+
+    // max seuildejoie = 0
+
+    if (systemData.seuildejoie.value > systemData.age.value){
+      systemData.seuildejoie.value = systemData.age.value;
     }
 
         //Min Autonomie
@@ -99,12 +107,6 @@ export class UjdpActor extends Actor {
       systemData.autonomie.value = 0;
     }
 
-    // Joie -> Désespoir
-    
-    while(systemData.desespoir.value >= 1 && systemData.joie.value >= 1){
-      systemData.desespoir.value -= 1;
-      systemData.joie.value -= 1;
-    }
     
      // Min Désespoir
      if (systemData.desespoir.value < 0){

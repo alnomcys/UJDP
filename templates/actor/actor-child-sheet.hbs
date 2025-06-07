@@ -9,7 +9,7 @@
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns.  --}}
         
-      <div class="resources grid grid-5col">
+      <div class="resources grid grid-6col">
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
@@ -25,6 +25,13 @@
           <label for="system.autonomie.value" class="resource-label">Autonomie</label>
           <div class="resource-content flexrow flex-center flex-between">
            <input type="text" name="system.autonomie.value" value="{{system.autonomie.value}}" data-autonomie="{{system.autonomie.value}}  data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.seuildejoie.value" class="resource-label">Seuil de joie</label>
+          <div class="resource-content flexrow flex-center flex-between">
+           <input type="text" name="system.seuildejoie.value" value="{{system.seuildejoie.value}}" data-seuildejoie="{{system.seuildejoie.value}}  data-dtype="Number"/>
           </div>
         </div>
 
@@ -74,15 +81,6 @@
         <div class="resource flexcol flex-group-center grid-span-2">
           <button class="item flex-group-center autonomie" type="button">Autonomie !</button>
         </div>
-        <div class="resource flexcol flex-group-center grid-span-2">
-          <button class="item flex-group-center enfantillage" type="button">Enfantillage !</button>
-        </div>
-        <div class="resource flex-group-center">
-          <label for="system.joie.value" class="resource-label">Joie</label>
-          <div class="resource-content flexrow flex-center flex-between">
-           <input type="text" name="system.joie.value" value="{{system.joie.value}}" data-dtype="Number"/>
-          </div>
-        </div>
       </section>   
       <section class="grid grid-5col">
         <div class="caracs flexcol grid-span-5">
@@ -96,9 +94,7 @@
         <div class="carac flexrow flex-group-center grid-span-3">
           <input type="text" name="system.doudou.description" value="{{system.doudou.description}}" data-dtype="String"/>
         </div>
-        <div class="carac flexrow flex-group-center grid-span-1">
-          <label for="system.doudou.check" class="resource-label flexlarge align-center">(+2 au Tests de Réconfort)</label>
-        </div>
+        
         <div class="caracs flexcol grid-span-2">
           <div>
             {{#each system.objets as |objet key|}}

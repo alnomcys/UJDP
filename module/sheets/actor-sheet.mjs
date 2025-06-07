@@ -7,7 +7,7 @@ export class UjdpActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['ujdp', 'sheet', 'actor'],
-      width: 630,
+      width: 650,
       height: 780,
       tabs: [
         {
@@ -148,6 +148,21 @@ export class UjdpActorSheet extends ActorSheet {
 
     //checkbox de doudou.
     html.on('change','.checkdoudou',this._onCheckDoudou.bind(this));
+
+    //checkbox jouet1.
+    html.on('change','.checkjouetobjet1',this._onCheckJouet1.bind(this));
+
+    //checkbox jouet2.
+    html.on('change','.checkjouetobjet2',this._onCheckJouet2.bind(this));
+
+    //checkbox jouet3.
+    html.on('change','.checkjouetobjet3',this._onCheckJouet3.bind(this));
+
+    //checkbox jouet4.
+    html.on('change','.checkjouetobjet4',this._onCheckJouet4.bind(this));
+
+    //checkbox jouet5.
+    html.on('change','.checkjouetobjet5',this._onCheckJouet5.bind(this));
 
     //checkbox d'objet1.
     html.on('change','.checkobjet1',this._onCheckObj1.bind(this));
@@ -343,10 +358,10 @@ export class UjdpActorSheet extends ActorSheet {
     event.preventDefault();
     //console.log (event);
     const element = event.delegateTarget;
-
+    /*  
     //recup du bonus d'action
     let bonusjouet = 0;
-        
+      
     //attribution du bonus des Jouets
     if(element[23].checked){
       bonusjouet += 2;
@@ -362,7 +377,7 @@ export class UjdpActorSheet extends ActorSheet {
     };
     if(element[39].checked){
       bonusjouet += 2;
-    };
+    };*/
    
     // Construct the Roll instance
         
@@ -438,20 +453,151 @@ export class UjdpActorSheet extends ActorSheet {
     };
   }
 
+  //Check jouet 1
+  _onCheckJouet1(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let NbJouets = 0; 
+    let newSdj = parseInt(element[1].dataset.age);
+    if(element[22].checked){       
+      NbJouets ++;
+    };
+    if(element[26].checked){       
+      NbJouets ++;
+    };
+    if(element[30].checked){       
+      NbJouets ++;
+    };
+    if(element[34].checked){       
+      NbJouets ++;
+    };
+    if(element[38].checked){       
+      NbJouets ++;
+    };
+    //console.log(newNbObjets);
+    newSdj -= 2 * NbJouets;
+    this.actor.update({'system.seuildejoie.value' : newSdj});
+  }
+
+  //Check jouet 2
+  _onCheckJouet2(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let NbJouets = 0; 
+    let newSdj = parseInt(element[1].dataset.age);
+    if(element[22].checked){       
+      NbJouets ++;
+    };
+    if(element[26].checked){       
+      NbJouets ++;
+    };
+    if(element[30].checked){       
+      NbJouets ++;
+    };
+    if(element[34].checked){       
+      NbJouets ++;
+    };
+    if(element[38].checked){       
+      NbJouets ++;
+    };
+    //console.log(newNbObjets);
+    newSdj -= 2 * NbJouets;
+    this.actor.update({'system.seuildejoie.value' : newSdj});
+  }
+  
+  //Check jouet 3
+  _onCheckJouet3(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let NbJouets = 0; 
+    let newSdj = parseInt(element[1].dataset.age);
+    if(element[22].checked){       
+      NbJouets ++;
+    };
+    if(element[26].checked){       
+      NbJouets ++;
+    };
+    if(element[30].checked){       
+      NbJouets ++;
+    };
+    if(element[34].checked){       
+      NbJouets ++;
+    };
+    if(element[38].checked){       
+      NbJouets ++;
+    };
+    //console.log(newNbObjets);
+    newSdj -= 2 * NbJouets;
+    this.actor.update({'system.seuildejoie.value' : newSdj});
+  }
+
+  //Check jouet 4
+  _onCheckJouet4(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let NbJouets = 0; 
+    let newSdj = parseInt(element[1].dataset.age);
+    if(element[22].checked){       
+      NbJouets ++;
+    };
+    if(element[26].checked){       
+      NbJouets ++;
+    };
+    if(element[30].checked){       
+      NbJouets ++;
+    };
+    if(element[34].checked){       
+      NbJouets ++;
+    };
+    if(element[38].checked){       
+      NbJouets ++;
+    };
+    //console.log(newNbObjets);
+    newSdj -= 2 * NbJouets;
+    this.actor.update({'system.seuildejoie.value' : newSdj});
+  }
+
+  //Check jouet 5
+  _onCheckJouet5(ev){
+    ev.preventDefault();
+    const element = ev.delegateTarget;
+    let NbJouets = 0; 
+    let newSdj = parseInt(element[1].dataset.age);
+    if(element[22].checked){       
+      NbJouets ++;
+    };
+    if(element[26].checked){       
+      NbJouets ++;
+    };
+    if(element[30].checked){       
+      NbJouets ++;
+    };
+    if(element[34].checked){       
+      NbJouets ++;
+    };
+    if(element[38].checked){       
+      NbJouets ++;
+    };
+    //console.log(newNbObjets);
+    newSdj -= 2 * NbJouets;
+    this.actor.update({'system.seuildejoie.value' : newSdj});
+  }
+
   //Check Objet 1
   _onCheckObj1(ev){
     ev.preventDefault();
     const element = ev.delegateTarget;
     let newAutonomie = parseInt(element[2].dataset.autonomie);    
+    let newSdj = parseInt(element[3].dataset.seuildejoie); 
     
-    
-    if(element[13].checked){       
-      newAutonomie += parseInt(element[25].dataset.bonus);
+    if(element[12].checked){       
+      newAutonomie += parseInt(element[24].dataset.bonus);
       this.actor.update({'system.autonomie.value' : newAutonomie});
     } else{        
-      newAutonomie -= parseInt(element[25].dataset.bonus);
-      this.actor.update({'system.autonomie.value' :newAutonomie});
+      newAutonomie -= parseInt(element[24].dataset.bonus);
+      this.actor.update({'system.autonomie.value' : newAutonomie});
     };
+    
   }
   _onCheckObj2(ev){
     ev.preventDefault();
@@ -539,7 +685,7 @@ export class UjdpActorSheet extends ActorSheet {
       this.actor.update({'system.autonomie.value' :newAutonomie});
     };
   }
-
+  /*
   async _myRollEnf(formula) {
     // Construct the Roll instance
     let r = new Roll(formula);
@@ -551,5 +697,5 @@ export class UjdpActorSheet extends ActorSheet {
       flavor: formula
     });
     return r
-  }
+  }*/
 }

@@ -220,15 +220,19 @@
         "value": 0,
         "max": 0
       },
+      "nbjouets": {
+        "value": 0
+      },
+      "seuildejoie": {
+        "value": 0,
+        "max": 0
+      },
       "desespoir": {
         "value": 0
       },
       "repos": {
         "value": 0,
         "max": 5
-      },
-      "joie": {
-        "value": 0
       },
       "vetements": {
           "chauds": {
